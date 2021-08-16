@@ -1,0 +1,80 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+const ll N=503,inf=INFINITY;
+ll n,m,q;
+ll ara[N][N];
+ 
+void input()
+{
+    cin>>n>>m>>q;
+ 
+    for(ll i=1;i<=n;i++)
+    {
+        for(ll j=1;j<=n;j++)
+        {
+           ara[i][j]=inf;
+        }
+    }
+ 
+    for(ll i=1;i<=n;i++)ara[i][i]=0;
+ 
+ 
+    for(ll i=1;i<=m;i++)
+    {ll a,b,w;
+     cin>>a>>b>>w;
+ 
+     if(ara[a][b]>w)
+     {
+ 
+ 
+     ara[a][b]=w;
+     ara[b][a]=w;
+ 
+     }
+    }
+ 
+ 
+ 
+ 
+}
+ 
+void floydwarsh()
+{
+    for(ll k=1;k<=n;k++)
+    {
+        for(ll i=1;i<=n;i++)
+        {
+            for(ll j=1;j<=n;j++)
+            {
+              if(ara[i][k]+ara[k][j]<ara[i][j] && ara[i][k]!=inf && ara[k][j]!=inf)
+              {
+                  ara[i][j]=ara[i][k]+ara[k][j];
+              }
+            }
+        }
+    }
+ 
+}
+ 
+int main()
+{
+ 
+  input();
+ 
+floydwarsh();
+ 
+while(q--)
+{
+    ll a,b;
+    cin>>a>>b;
+ 
+  if(ara[a][b]==inf)cout<<-1<<endl;
+  else cout<<ara[a][b]<<endl;
+ 
+}
+ 
+ 
+ 
+ 
+}
