@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define pb push_back
+#define ff first
+#define ss second
+#define pb push_back
+#define eb emplace_back
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+int main()
+{
+       string str;
+ 
+       cin>>str;
+ 
+       sort(str.begin(),str.end());
+ 
+       vector<string>v;
+ 
+       v.pb(str);
+ 
+     while(next_permutation(str.begin(),str.end()))
+     {
+         //cout<<str<<endl;
+         v.pb(str);
+     }
+ 
+ 
+     cout<<v.size()<<endl;
+ 
+     for(auto x:v)cout<<x<<endl;
+ 
+ 
+ 
+ 
+ 
+}
