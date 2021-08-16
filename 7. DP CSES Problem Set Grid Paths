@@ -1,0 +1,78 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define fi first
+#define se second
+#define pb push_back
+#define all(q) (q).begin(),(q).end()
+ll const MOD=1000000007;
+#define eb emplace_back
+const int N=1e3;
+ll dp[N+10][N+10];
+vector<ll>v;
+int main()
+{
+    fastread();
+ 
+ 
+    ll n;
+ 
+    cin>>n;
+ 
+    vector<string>str;
+ 
+ 
+ 
+    for(ll i=0;i<n;i++)
+    {
+        string s;
+        cin>>s;
+        str.pb(s);
+    }
+ 
+    if(str[n-1][n-1]=='.')dp[n-1][n-1]=1;
+ 
+     for(ll i=n-2;i>=0;i--)
+     {
+          if(str[n-1][i]=='*')dp[n-1][i]=0;
+          else dp[n-1][i]=dp[n-1][i+1];
+     }
+ 
+     for(ll i=n-2;i>=0;i--)
+     {
+            if(str[i][n-1]=='*')dp[i][n-1]=0;
+          else dp[i][n-1]=dp[i+1][n-1];
+     }
+ 
+ 
+ 
+ 
+ for(ll i=n-2;i>=0;i--)
+ {
+ 
+   for(ll j=n-2;j>=0;j--)
+   {
+       if(str[i][j]=='*')
+       {
+           dp[i][j]=0;
+           continue;
+       }
+     dp[i][j]+=dp[i+1][j]+dp[i][j+1];
+ 
+     dp[i][j]%=MOD;
+   }
+ 
+ 
+ }
+ 
+   cout<<dp[0][0]<<endl;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+}
