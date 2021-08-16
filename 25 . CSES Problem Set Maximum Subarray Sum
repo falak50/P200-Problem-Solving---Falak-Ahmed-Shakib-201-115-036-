@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define pb push_back
+#define ff first
+#define ss second
+#define pb push_back
+#define eb emplace_back
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+int main()
+{
+ 
+     ll n;
+     cin>>n;
+ 
+ 
+         ll sum=-1e18,mx=-1e18;
+         for(ll i=0;i<n;i++)
+         {
+          ll a;
+          cin>>a;
+          mx=max(0ll+a,mx+a);
+          sum=max(sum,mx);
+ 
+         }
+ 
+         cout<<sum<<endl;
+ 
+ 
+ 
+ 
+ 
+}
