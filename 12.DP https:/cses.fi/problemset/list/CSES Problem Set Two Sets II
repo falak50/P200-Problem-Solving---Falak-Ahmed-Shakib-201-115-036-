@@ -1,0 +1,60 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long  ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+#define   fastread(); (ios_base:: sync_with_stdio(false),cin.tie(NULL));
+#define vll(v) v.begin(),v.end()
+#define all(x) x.rbegin(),x.rend()
+#define min3(a, b, c)   min(a, min(b, c))
+#define max3(a, b, c)   max(a, max(b, c))
+#define in  freopen("input.txt", "r", stdin)
+#define out  freopen("output.txt", "w", stdout)
+#define minheap int,vector<int>,greater<int>
+#define pb push_back
+#define eb emplace_back
+const int Max = 2e5 ;
+const int Mod = 1e9 + 7;
+const int N=1e6;
+int main()
+{
+   fastread();
+ 
+   ll t;
+   t=1;
+ 
+   while(t--)
+   {
+       ll n;
+       cin>>n;
+       ll dp[n+1][n*n];
+ 
+       for(ll i=1;i<=(n*(n+1))/2;i++)dp[0][i]=0;
+       dp[0][0]=1;
+ 
+       for(ll i=1;i<=n;i++)
+       {
+           for(ll x=0;x<=((n*(n+1))/4);x++)
+           {
+               dp[i][x]=(((x<i)? 0 : dp[i-1][x-i])+dp[i-1][x])%Mod;
+           }
+       }
+ 
+ 
+       if((n*(n+1))%4!=0)cout<<"0"<<endl;
+       else {
+ 
+         cout<<((dp[n][(n*(n+1))/4])*500000004)%Mod<<endl;
+ 
+ 
+       }
+ 
+   }
+ 
+ 
+ 
+ 
+ 
+ 
+}
