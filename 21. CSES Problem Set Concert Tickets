@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define pb push_back
+#define ff first
+#define ss second
+#define pb push_back
+#define eb emplace_back
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+int main()
+{
+ 
+ 
+     ll n,m;
+ 
+     cin>>n>>m;
+ 
+     multiset<ll>s;
+ 
+     for(ll i=0;i<n;i++)
+     {
+        ll a;
+        cin>>a;
+        s.insert(a);
+ 
+     }
+     for(ll i=0;i<m;i++)
+     {
+         ll b;
+ 
+         cin>>b;
+ 
+         auto it=s.lower_bound(b+1);
+ 
+         if(it==s.begin())cout<<-1<<endl;
+         else {
+ 
+            --it;
+            cout<<*it<<endl;
+            s.erase(it);
+ 
+         }
+ 
+     }
+ 
+ 
+ 
+}
