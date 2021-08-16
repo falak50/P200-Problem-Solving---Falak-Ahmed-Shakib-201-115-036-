@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define pb push_back
+#define ff first
+#define ss second
+#define pb push_back
+#define eb emplace_back
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+int main()
+{
+      ll n;
+ 
+      cin>>n;
+ 
+      set<array<ll,2>>s;
+ 
+      for(ll i=0;i<n;i++)
+      {
+         ll a,b;
+         cin>>a>>b;
+         s.insert({b,a});
+      }
+ 
+    ll mx=0,cnt=0,pre=-100;
+ 
+    for(auto x:s)
+    {
+       // cout<<x[1]<<" "<<x[0]<<endl;
+        if(x[1]>=pre)
+        {
+            cnt++;
+            pre=x[0];
+        }
+    }
+ 
+    cout<<cnt<<endl;
+ 
+ 
+}
