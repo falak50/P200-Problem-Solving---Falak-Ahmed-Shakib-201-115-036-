@@ -1,0 +1,60 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define pb push_back
+#define ff first
+#define ss second
+#define pb push_back
+#define eb emplace_back
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+int main()
+{
+    ll n ;
+  cin>>n;
+ 
+    if(n%4==1 or n%4==2)
+    {
+        cout<<"NO"<<endl;
+    }else {
+ 
+ 
+     cout<<"YES"<<endl;
+ 
+       vector<ll>v1,v2;
+ 
+       while(n>3)
+       {
+           v1.pb(n);
+           n--;
+           v2.pb(n);
+           n--;
+           v2.pb(n);
+           n--;
+           v1.pb(n);
+           n--;
+       }
+ 
+       if(n)
+       {
+           v1.pb(1);
+           v1.pb(2);
+           v2.pb(3);
+       }
+ 
+  cout<<v1.size()<<endl;
+  for(auto x:v1)cout<<x<<" ";cout<<endl;
+ 
+  cout<<v2.size()<<endl;
+  for(auto x:v2)cout<<x<<" ";cout<<endl;
+ 
+ 
+    }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+}
