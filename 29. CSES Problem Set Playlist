@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define pb push_back
+#define ff first
+#define ss second
+#define pb push_back
+#define eb emplace_back
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+int main()
+{
+ 
+    map<ll,ll>mp;
+    ll n;cin>>n;
+    ll ara[n+1];
+    for(ll i=0;i<n;i++)cin>>ara[i];
+ 
+    ll i=0,j=0;
+ 
+    ll ans=1;
+    while(i<n)
+    {
+        if(mp[ara[i]])
+        {
+ 
+            ans=max(i-j,ans);
+ 
+            while(mp[ara[i]])
+            {
+                mp[ara[j]]--;
+                j++;
+            }
+        }
+ 
+        mp[ara[i]]++;
+        i++;
+    }
+ 
+    ans=max(i-j,ans);
+ 
+    cout<<ans<<endl;
+ 
+
+ 
+}
+ 
