@@ -1,0 +1,100 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long  ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define fi first
+#define se second
+#define pb push_back
+ll const MOD=1000000007;
+const int M= 2e5 + 10;
+///-------------------------------------------------------------------------------------------------///
+///                KARMA IS LIKE 69,,, YOU GET WHAT YOU GIVE                                        ///
+///-------------------------------------------------------------------------------------------------///
+#define eb emplace_back
+ 
+vector<ll>v[M+10];
+ll n,m;
+bool vis[M+10];
+ll cost[M+1];
+queue<ll>q;
+vector<ll>ans;
+void BFS()
+{
+ 
+ 
+ 
+ 
+    while(!q.empty())
+    {
+        ll u=q.front();
+        q.pop();
+        //cout<<u<<endl;
+   ans.push_back(u);
+       for(auto x:v[u])
+       {
+           cost[x]--;
+           if(!cost[x])
+           {
+ 
+            q.push(x);
+ 
+           }
+ 
+ 
+       }
+ 
+    }
+ 
+ 
+}
+ 
+ 
+void input()
+{
+ 
+     cin>>n>>m;
+ 
+    ll a,b;
+    for(ll i=0;i<m;i++)
+    {
+        cin>>a>>b;
+ 
+       v[a].eb(b);
+ 
+       cost[b]++;
+ 
+    }
+}
+ 
+ 
+int main()
+{
+    fastread();
+ 
+    input();
+ 
+ 
+    for(ll i=1;i<=n;i++)
+    {
+        if(!cost[i])q.push(i);
+ 
+    }
+ 
+ 
+ 
+    BFS();
+ 
+ 
+ 
+     if(ans.size()==n)
+     {
+        for(auto x:ans)cout<<x<<endl;
+ 
+ 
+    }else cout<<"IMPOSSIBLE"<<endl;
+ 
+ 
+ 
+ 
+}
