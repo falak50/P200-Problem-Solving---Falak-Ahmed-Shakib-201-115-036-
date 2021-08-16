@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define pb push_back
+#define ff first
+#define ss second
+#define pb push_back
+#define eb emplace_back
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+const ll N=2e5;
+int main()
+{
+ 
+   ll n;
+ 
+   cin>>n;
+ 
+   ll ara[n+1];
+   for(ll i=0;i<n;i++)cin>>ara[i];
+   sort(ara,ara+n);
+   // for(ll i=0;i<n;i++)cout<<ara[i]<<" ";cout<<endl;
+   ll j=1,i=0;
+   map<ll,ll>mp;
+   mp[0]=1;
+   while(i<n)
+   {
+      // cout<<ara[i]<<" "<<j<<endl;
+       if(j-ara[i]>=0)
+       {
+            j=ara[i]+j;
+       }else break;
+        i++;
+   }
+     cout<<j<<endl;
+ 
+ 
+ 
+ 
+}
