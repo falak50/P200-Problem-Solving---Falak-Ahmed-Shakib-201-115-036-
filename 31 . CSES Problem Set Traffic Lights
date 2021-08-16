@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = int;
+#define pb push_back
+#define ff first
+#define ss second
+#define pb push_back
+#define eb emplace_back
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+const ll N=2e5;
+int main()
+{
+    ll n,k;
+    cin>>k>>n;
+    set<ll>pos;
+    multiset<ll>len;
+    pos.insert(0);
+    pos.insert(k);
+    len.insert(k-0);
+ 
+    for(ll i=0;i<n;i++)
+    {
+       ll a;
+       cin>>a;
+ 
+       pos.insert(a);
+       auto it=pos.find(a);
+ 
+       ll pre=*prev(it);
+       ll nxt=*next(it);
+ 
+      // cout<<pre<<" "<<nxt<<endl;
+       len.erase(len.find(nxt-pre));
+       len.insert(a-pre);
+       len.insert(nxt-a);
+       cout<<*len.rbegin()<<" ";
+ 
+    }
+    cout<<endl;
+ 
+ 
+ 
+ 
+}
