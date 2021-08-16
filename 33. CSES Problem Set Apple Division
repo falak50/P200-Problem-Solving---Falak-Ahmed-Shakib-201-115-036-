@@ -1,0 +1,60 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long  ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+ll const MOD=1000000007;
+const int M= 2e5 + 10;
+ll cost[M+10];
+bool vis[M+10];
+ll n,m,a,b;
+bool ok=false;
+vector<ll>v[M+1];
+ll tar,total=0;
+bool f=false;
+ll ara[300];
+ll ans=1e18;
+void call(ll sum,ll p)
+{
+      if(p>n)
+      {
+          ll sum1=total-sum;
+          ans=min(ans,abs(sum1-sum));
+          return ;
+      }
+ 
+      call(sum+ara[p],p+1);
+ 
+    call(sum,p+1);
+ 
+ 
+}
+ 
+int main()
+{
+    fastread();
+ 
+    cin>>n;
+ 
+    for(ll i=0;i<n;i++)
+    {
+       cin>>ara[i];
+ 
+       total+=ara[i];
+    }
+ 
+ 
+   call(0,0);
+ 
+ 
+   cout<<ans<<endl;
+ 
+ 
+ 
+ 
+ 
+}
