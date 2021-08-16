@@ -1,0 +1,59 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define pb push_back
+#define ff first
+#define ss second
+#define pb push_back
+#define eb emplace_back
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+ll col[16],d1[16],d2[16];
+char mark[16][16];
+ll cnt=0;
+void call(ll r)
+{
+  if(r==8)
+  {
+      cnt++;
+      return;
+  }
+ 
+  for(ll c=0;c<8;c++)
+  {
+      if(mark[c][r]=='.' and d1[c+r]==0 and d2[r-c+7]==0 and col[c]==0)
+      {
+          d1[c+r]=d2[r-c+7]=col[c]=1;
+          call(r+1);
+            d1[c+r]=d2[r-c+7]=col[c]=0;
+      }
+  }
+ 
+}
+int main()
+{
+     for(ll i=0;i<8;i++)
+     {
+         col[i]=d1[i]=d2[i]=0;
+     }
+ 
+ 
+ 
+ 
+     for(ll i=0;i<=7;i++)
+     {
+         for(ll j=0;j<=7;j++)
+         {
+ 
+            cin>>mark[i][j];
+ 
+         }
+     }
+ 
+       call(0);
+ 
+  cout<<cnt<<endl;
+ 
+ 
+ 
+}
