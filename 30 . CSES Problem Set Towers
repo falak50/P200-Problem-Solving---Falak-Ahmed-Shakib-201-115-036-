@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define pb push_back
+#define ff first
+#define ss second
+#define pb push_back
+#define eb emplace_back
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+int main()
+{
+ 
+  vector<ll>v;
+ll n;
+ 
+cin>>n;
+ 
+for(ll i=0;i<n;i++)
+{
+    ll a;
+    cin>>a;
+    ll pos=upper_bound(v.begin(),v.end(),a)-v.begin();
+  if(pos==v.size())v.pb(a);
+  else v[pos]=a;
+}
+ 
+  cout<<v.size()<<endl;
+ 
+ 
+ 
+ 
+ 
+}
+ 
