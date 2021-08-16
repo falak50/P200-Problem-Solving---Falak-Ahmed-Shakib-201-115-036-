@@ -1,0 +1,98 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL));
+#define all(v) v.begin(),v.end()
+#define min3(a, b, c)   min(a, min(b, c))
+#define max3(a, b, c)   max(a, max(b, c))
+#define sf(a) scanf("%d",&a)
+#define pf(a) printf("%d",a);
+#define F first
+#define S second
+#define ff first
+#define S second
+#define minheap int,vector<int>,greater<int>
+#define pb push_back
+#define eb emplace_back
+#define ischar(x)  (('a' <= x && x <= 'z') || ('A' <= x && x <= 'Z'))
+#define isvowel(ch) ((ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')||(ch=='A'|| ch=='E' || ch=='I'|| ch=='O'|| ch=='U'))
+#define bug cout<<"BUG"<<endl;
+struct nod{
+ ll s,f,p;
+};
+bool com(nod a,nod b)
+{
+     return a.f<b.f;
+}
+ll bs(nod a[],ll i)
+{
+    ll  hi=i-1,lo=0;
+ 
+    while(lo<=hi)
+    {
+      //  cout<<hi<<" "<<lo<<endl;
+        ll m=(hi+lo)/2;
+ 
+        if(a[m].f<a[i].s)
+        {
+            if(a[m+1].f<a[i].s)
+            {
+                lo=m+1;
+            }else return m;
+ 
+        }else{
+ 
+           hi=m-1;
+        }
+ 
+ 
+    }
+ 
+ 
+    return -1;
+ 
+ 
+}
+int main()
+{
+ 
+   fastread();
+ 
+ 
+   ll n;
+   cin>>n;
+   nod a[n+1];
+   for(ll i=0;i<n;i++)cin>>a[i].s>>a[i].f>>a[i].p;
+   sort(a,a+n,com);
+ 
+ 
+     //cout<<endl;
+   // for(ll i=0;i<n;i++)cout<<a[i].s<<" "<<a[i].f<<" "<<a[i].p<<endl;
+ 
+   vector<ll>dp(n+1,0);
+ 
+   dp[0]=a[0].p;// base case
+ 
+   for(ll i=1;i<n;i++)
+   {
+       ll  in=a[i].p;   //includes
+       ll idx=bs(a,i);
+       if(idx!=-1)
+       {
+           in+=dp[idx];
+       }
+       ll out=dp[i-1]; //with out add this point
+ 
+       dp[i]=max(in,out);
+ 
+   }
+ 
+    cout<<dp[n-1]<<endl;
+ 
+ 
+ 
+ 
+}
