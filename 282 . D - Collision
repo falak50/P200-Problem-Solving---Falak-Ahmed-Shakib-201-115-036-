@@ -1,0 +1,129 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long  ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define fi first
+#define se second
+#define pb push_back
+ll const MOD=1000000007;
+const int M= 2e5 + 10;
+///-------------------------------------------------------------------------------------------------///
+///                KARMA IS LIKE 69,,, YOU GET WHAT YOU GIVE                                        ///
+///-------------------------------------------------------------------------------------------------///
+#define eb emplace_back
+
+vector<ll>v[M+10];
+ll n,m;
+bool vis[M+10];
+ll cost[M+1];
+void BFS(ll s)
+{
+    vis[s]=true;
+
+    cost[s]=0;
+
+    queue<ll>q;
+
+    q.push(s);
+
+
+    while(!q.empty())
+    {
+        ll u=q.front();
+        q.pop();
+
+       for(auto x:v[u])
+       {
+           if(!vis[x])
+           {
+               cost[x]=cost[u]+1;
+
+               vis[x]=true;
+               q.push(x);
+
+           }
+
+
+       }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+void input()
+{
+
+     cin>>n>>m;
+
+    ll a,b;
+    for(ll i=0;i<n-1;i++)
+    {
+        cin>>a>>b;
+
+       v[a].eb(b);
+
+       v[b].eb(a);
+
+    }
+}
+
+
+int main()
+{
+    fastread();
+
+    input();
+
+
+    ll s;
+
+
+ //  cin>>s;
+
+
+
+    BFS(1);
+
+
+    while(m--)
+    {
+        ll a,b;
+
+        cin>>a>>b;
+
+        ll sum=cost[a]+cost[b];
+
+        if(sum%2)cout<<"Road"<<endl;
+        else cout<<"Town"<<endl;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
