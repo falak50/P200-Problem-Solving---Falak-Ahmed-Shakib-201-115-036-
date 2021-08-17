@@ -1,0 +1,116 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+int main()
+{
+    fastread();
+
+    ll t;
+
+    cin>>t;
+
+    while(t--)
+    {
+
+
+        ll n,k;
+
+        cin>>n>>k;
+
+        ll ara[n+1];
+        ll sum=0;
+        map<ll,ll>mp;
+        ll mx=-1;
+
+        for(ll i=0; i<n; i++)
+        {
+            cin>>ara[i];
+            mp[ara[i]]++;
+            if(mp[ara[i]]==1)sum++;
+
+                    mx=max(mx,ara[i]);
+        }
+    ll mex=0;
+    for(ll i=0; i<n+100; i++)
+        {
+            if(mp[i])
+            {
+                mex=i+1;
+            }
+            else break;
+        }
+  //cout<<mex<<endl;
+
+  map<ll,ll>ss;
+
+
+
+ if(mx+1==mex)
+ {
+     cout<<mx+k+1<<endl;
+     continue;
+ }
+        while(k--)
+        {
+            ll total=mx+mex;
+
+           ll add=(total)/2;
+
+           if(total%2)add++;
+
+            mx=max(mx,add);
+
+
+           mp[add]++;
+
+           //cout<<"add = "<<add<<endl;
+
+           if(mp[add]==1)sum++;
+
+               for(ll i=mex; i<n+100; i++)
+        {
+            if(mp[i])
+            {
+                mex=i+1;
+            }
+            else break;
+        }
+
+          ss[sum]++;
+
+
+          if(ss[sum]>100)break;
+
+
+
+
+
+        }
+
+
+
+        cout<<sum<<endl;
+
+
+
+
+
+
+
+
+    }
+
+
+
+}
