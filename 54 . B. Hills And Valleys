@@ -1,0 +1,106 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL));
+#define vll(v) v.begin(),v.end()
+#define min3(a, b, c)   min(a, min(b, c))
+#define max3(a, b, c)   max(a, max(b, c))
+#define sf(a) scanf("%d",&a)
+#define pf(a) printf("%d",a);
+#define ff first
+#define ss second
+#define minheap int,vector<int>,greater<int>
+#define pb push_back
+#define eb emplace_back
+#define ischar(x)  (('a' <= x && x <= 'z') || ('A' <= x && x <= 'Z'))
+#define isvowel(ch) ((ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')||(ch=='A'|| ch=='E' || ch=='I'|| ch=='O'|| ch=='U'))
+#define bug cout<<"BUG"<<endl;
+const ll N=1e6;
+ll n;
+ll ara[N+10];
+ll call(ll i)
+{
+        ll cnt=0;
+        if(ara[i]>ara[i-1] and ara[i]>ara[i+1])cnt++;
+        if(ara[i]<ara[i-1] and ara[i]<ara[i+1])cnt++;
+        ll j=i-1;
+        if(j>=1)
+        {
+            if(ara[j]>ara[j-1] and ara[j]>ara[j+1])cnt++;
+            if(ara[j]<ara[j-1] and ara[j]<ara[j+1])cnt++;
+        }
+        j=i+1;
+        if(j<n-1)
+        {
+            if(ara[j]>ara[j-1] and ara[j]>ara[j+1])cnt++;
+            if(ara[j]<ara[j-1] and ara[j]<ara[j+1])cnt++;
+
+        }
+
+   return cnt;
+
+}
+int main()
+{
+    fastread();
+
+  ll t;
+  cin>>t;
+
+
+  while(t--)
+  {
+
+
+   cin>>n;
+
+   for(ll i=0;i<n;i++)cin>>ara[i];
+
+   ll sum=0;
+
+   for(ll i=1;i<n-1;i++)
+   {
+       if(ara[i]>ara[i-1] and ara[i]>ara[i+1])sum++;
+       if(ara[i]<ara[i-1] and ara[i]<ara[i+1])sum++;
+   }
+
+   //cout<<"ans= "<<sum<<endl;
+   ll ans=sum;
+   for(ll i=1;i<n-1;i++)
+   {
+       ll cnt=0,cnt1=0,cnt2=0;
+
+       cnt=call(i);
+       ll a=ara[i];
+       ara[i]=ara[i-1];
+       cnt1=call(i);
+       ara[i]=ara[i+1];
+       cnt2=call(i);
+       ara[i]=a;
+
+        if(cnt>cnt1)
+        {
+            ans=min(ans,sum-(cnt-cnt1));
+        }
+           if(cnt>cnt2)
+        {
+            ans=min(ans,sum-(cnt-cnt2));
+        }
+   }
+
+
+   cout<<ans<<endl;
+
+
+
+
+
+
+
+
+
+  }
+}
