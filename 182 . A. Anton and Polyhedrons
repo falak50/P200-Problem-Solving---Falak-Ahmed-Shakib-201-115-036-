@@ -1,0 +1,65 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+#define all(x) x.begin(),x.end()
+void loop()
+{
+    for(ll i=0; i<10; i++) {};
+}
+double mn,sum;
+bool call()
+{
+
+
+}
+int main()
+{
+
+    fastread();
+
+
+  map<string,ll>mp;
+
+
+  mp["Tetrahedron"]=4;
+   mp["Cube"]=6;
+   mp["Octahedron"]=8;
+   mp["Dodecahedron"]=12;
+    mp["Icosahedron"]=20;
+
+
+    ll n;
+
+    cin>>n;
+
+
+    ll sum=0;
+
+    for(ll i=0;i<n;i++)
+    {
+        string str;
+        cin>>str;
+        sum+=mp[str];
+    }
+
+
+    cout<<sum<<endl;
+
+
+
+
+
+
+
+}
