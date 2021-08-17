@@ -1,0 +1,58 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL));
+#define all(v) v.begin(),v.end()
+#define min3(a, b, c)   min(a, min(b, c))
+#define max3(a, b, c)   max(a, max(b, c))
+#define sf(a) scanf("%d",&a)
+#define pf(a) printf("%d",a);
+#define F first
+#define S second
+#define ff first
+#define S second
+#define minheap int,vector<int>,greater<int>
+#define pb push_back
+#define eb emplace_back
+#define ischar(x)  (('a' <= x && x <= 'z') || ('A' <= x && x <= 'Z'))
+#define isvowel(ch) ((ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')||(ch=='A'|| ch=='E' || ch=='I'|| ch=='O'|| ch=='U'))
+#define bug cout<<"BUG"<<endl;
+int main()
+{
+
+   fastread();
+
+   ll t;
+   cin>>t;
+
+   while(t--)
+   {
+   string str;
+   cin>>str;
+
+   ll r=0,p=0,s=0;
+
+  for(ll i=0;str[i];i++)
+  {
+      if(str[i]=='R')r++;
+      else if(str[i]=='P')p++;
+      else s++;
+  }
+    char c;
+     if(s>=p and s>=r)c='R';
+     else if(p>=s and p>=r)c='S';
+     else c='P';
+
+
+     for(ll i=0;str[i];i++)cout<<c;cout<<endl;
+
+
+
+   }
+
+}
+
+ 
