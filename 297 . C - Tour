@@ -1,0 +1,88 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+ll const N=2e6;
+vector<ll>v[N+1];
+vector<ll>v1[N+1];
+
+bool vis[N+1];
+
+ll cost[100];
+
+ll level[N+10];
+
+ll level1[N+10];
+
+bool flag,cycle;
+
+ll sub_tree[N+10];
+
+ll n,m,a,b;
+
+ll cnt=0;
+
+void input()
+{
+    cin>>n>>m;
+
+    ll a,b;
+
+    for(ll i=0; i<m; i++)
+    {
+        cin>>a>>b;
+        v[a].push_back(b);
+       // v[b].push_back(a);
+    }
+}
+
+void DFS(ll s)
+{
+
+   // cout<<s<<endl;
+    vis[s]=true;
+
+    for(auto x:v[s])
+    {
+
+        if(!vis[x])
+        {
+            cnt++;
+            vis[x]=true;
+            DFS(x);
+        }
+    }
+}
+
+int main()
+{
+    fastread();
+
+    input();
+ll sum=0;
+
+     for(ll i=1;i<=n;i++)
+     {
+
+           cnt=0;
+           DFS(i);
+
+          for(ll j=1;j<=n;j++)vis[j]=false;
+
+           sum+=(cnt+1);
+     }
+
+
+     cout<<sum<<endl;
+
+}
+/*
+6 6
+1 2
+1 3
+2 4
+2 6
+3 5
+3 4
+
+*/
