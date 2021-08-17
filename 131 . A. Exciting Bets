@@ -1,0 +1,69 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define fi first
+#define se second
+#define pb push_back
+ll const MOD=1000000007;
+#define eb emplace_back
+const int N=10000005;
+bool  ok=true;
+int main()
+{
+
+    fastread();
+
+    ll t;
+
+    cin>>t;
+
+
+    while(t--)
+    {
+
+
+
+    ll a,b;
+
+    cin>>a>>b;
+
+    if(a==b)
+    {
+        cout<<0<<" "<<0<<endl;
+        continue;
+    }
+
+    if(a<b)swap(a,b);
+
+
+    ll d=a-b;
+
+    ll bb=a/d;
+
+
+    ll gun=bb*d;
+    ll gun1=gun;
+    if(gun!=a)gun+=d;
+
+
+    //cout<<gun<<" "<<gun1<<endl;
+
+
+   ll  add1=gun-a;
+
+   ll add2=a-gun1;
+
+   cout<<d<<" "<<min(add1,add2)<<endl;
+
+
+
+
+    }
+
+
+
+
+
+}
