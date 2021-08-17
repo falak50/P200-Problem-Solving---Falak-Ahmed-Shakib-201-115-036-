@@ -1,0 +1,71 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define pb push_back
+#define ff first
+#define ss second
+#define pb push_back
+#define eb emplace_back
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+const ll mod=1e9+7;
+const ll Max=2e5+7;
+pll ara[Max+1];
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL));
+bool f;
+
+
+int main()
+{
+    fastread();
+
+
+
+
+    ll n;
+
+    cin>>n;
+
+    string str;
+
+    cin>>str;
+
+
+    vector<string>v;
+
+    for(ll i=0;i<n;i++)
+    {
+        string s;
+        cin>>s;
+        v.pb(s);
+    }
+
+
+    string s=v[n-1];
+    ll suru=0;
+    for(ll i=0;s[i];i++)
+{
+    if(s[i]=='>')
+    {
+        suru=i+1;
+        break;
+    }
+}
+
+  bool f=true;
+ string ss;
+  for(ll i=suru;s[i];i++)
+  {
+      ss+=s[i];
+  }
+
+
+  if(n%2==0)
+  {
+      cout<<"home"<<endl;
+
+  }else cout<<"contest"<<endl;
+
+
+
+}
