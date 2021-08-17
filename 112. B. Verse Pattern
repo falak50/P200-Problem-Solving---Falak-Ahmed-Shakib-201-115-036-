@@ -1,0 +1,63 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef int   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+#define all(v) v.begin(),v.end()
+ll const MOD=1e9+7;
+#define eb emplace_back
+const int N=2e5+10;
+int main()
+{
+    fastread();
+
+
+    ll n;
+
+    cin>>n;
+
+
+    ll ara[n+1];
+
+
+    for(ll i=0;i<n;i++)
+    {
+      cin>>ara[i];
+    }
+      cin.ignore();
+    bool f=true;
+    for(ll k=0;k<n;k++)
+    {
+
+          string s;
+         getline(cin,s);
+
+          ll cnt=0;
+
+          for(ll i=0;s[i];i++)
+          {
+              if(s[i]=='a' or s[i]=='e' or s[i]=='i' or s[i]=='o' or s[i]=='u' or s[i]=='y')
+              {
+                  cnt++;
+              }
+              //cout<<cnt<<" "<<s[i]<<" "<<i<<endl;
+          }
+          //cout<<cnt<<" "<<ara[k]<<endl;
+
+          if(cnt!=ara[k])
+          {
+              f=false;
+          }
+
+
+    }
+
+    if(f)cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
+
+
+
+}
