@@ -1,0 +1,64 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define fi first
+#define se second
+#define pb push_back
+ll const MOD=1000000007;
+#define eb emplace_back
+const int N=10000005;
+bool  ok=true;
+int main()
+{
+
+    fastread();
+
+    vector<ll>v;
+    ll n,k,mx=1;
+    cin>>n>>k;
+    map<ll,ll>mp,mp1;
+    set<ll>s;
+    for(ll i=0;i<n;i++)
+    {
+        ll a;cin>>a;
+        mp[a]++;
+        mp1[mp[a]]++;
+        v.pb(mp[a]);
+        mx=max(mx,mp[a]);
+        s.insert(mp[a]);
+
+    }
+
+
+    if(k>=mx )
+    {
+        cout<<"YES"<<endl;
+
+
+       ll len=s.size()+1,i=0;
+
+        while(i<n)
+        {
+      //   cout<<i<<" "<<v[i]<<" "<<mp1[v[i]]<<endl;
+            if(mp1[v[i]]>1 and len<=k)
+            {
+                cout<<len<<" ";
+                mp1[v[i]]--;
+                len++;
+
+            }else {
+            cout<<v[i]<<" ";
+            mp1[v[i]]--;
+            }
+           // cout<<"lol"<<endl;
+            i++;
+        }
+
+
+    }else cout<<"NO"<<endl;
+
+
+
+}
