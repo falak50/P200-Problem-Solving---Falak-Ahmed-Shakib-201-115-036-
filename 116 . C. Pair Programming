@@ -1,0 +1,115 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef int   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+ll const MOD=1e9+7;
+#define eb emplace_back
+const int N=2e5+10;
+int main()
+{
+    fastread();
+
+
+    ll t;
+
+    cin>>t;
+
+    while(t--)
+    {
+
+  ll k,n,m;
+  cin>>k>>n>>m;
+   ll ara[n+110],bra[m+1100];
+
+   for(ll i=0;i<n;i++)cin>>ara[i];
+
+
+   for(ll i=0;i<m;i++)cin>>bra[i];
+
+
+   vector<ll>v;
+
+   ll i=0,j=0;
+
+   while(i<n and  j<m)
+   {
+        if(ara[i]==0)
+        {
+            k++;
+
+           v.pb(0);
+
+           i++;
+
+        }else if(bra[j]==0)
+        {
+            k++;
+            v.pb(0);
+            j++;
+        }else {
+
+        if(ara[i]<=k)
+        {
+            v.pb(ara[i]);
+            i++;
+        }else if(bra[j]<=k)
+        {
+            v.pb(bra[j]);
+            j++;
+        }else break;
+
+
+        }
+
+   }
+
+      while(i<n)
+      {
+          if(ara[i]==0)
+          { k++;
+              v.pb(ara[i]);
+              i++;
+          }else if(ara[i]<=k)
+          {
+              v.pb(ara[i]);
+              i++;
+          }else break;
+
+      }
+
+
+        while(j<m)
+      {
+          if(bra[j]==0)
+          { k++;
+              v.pb(bra[j]);
+              j++;
+          }else if(bra[j]<=k)
+          {
+              v.pb(bra[j]);
+              j++;
+          }else break;
+
+      }
+
+
+      if(i==n and j==m)
+      {
+          for(auto x:v)cout<<x<<" ";
+
+          cout<<endl;
+      }else cout<<-1<<endl;
+
+
+
+
+    }
+
+
+
+
+}
