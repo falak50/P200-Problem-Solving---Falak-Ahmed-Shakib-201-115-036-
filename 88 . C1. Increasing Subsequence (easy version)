@@ -1,0 +1,93 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+#define all(v) v.begin(),v.end()
+ll const MOD=1e9+7;
+#define eb emplace_back
+ll const N=1e3+10;
+int main()
+{
+
+    fastread();
+
+    deque<ll>dq;
+
+    ll n;
+    cin>>n;
+    for(ll i=0;i<n;i++)
+    {
+        ll a;
+        cin>>a;
+        dq.push_back(a);
+    }
+
+  vector<char>v;
+  vector<ll>ans;
+  ll pre=-1;
+  while(n--)
+  {
+      ll f=dq.front();
+      ll b=dq.back();
+   //   cout<<f<<" "<<b<<" "<<pre<<endl;
+
+      if(f<=b)
+      {
+         // cout<<"1="<<endl;
+
+       if(pre<f)
+      {
+            pre=f;
+            v.pb('L');
+            dq.pop_front();
+      }else if(pre<b)
+      {
+          pre=b;
+          v.pb('R');
+          dq.pop_back();
+      }else break;
+
+
+      }else  {
+                 //  cout<<"2="<<endl;
+
+      if(pre<b)
+      {
+          pre=b;
+          v.pb('R');
+           dq.pop_back();
+      }
+      else  if(pre<f)
+      {
+            pre=f;
+            v.pb('L');
+            dq.pop_front();
+      }
+      else break;
+
+
+
+
+      }
+
+      ans.pb(pre);
+  }
+
+
+  cout<<v.size()<<endl;
+ // for(auto x:ans)cout<<x;cout<<endl;
+  for(auto v:v)cout<<v;cout<<endl;
+
+
+
+
+
+
+
+
+
+}
