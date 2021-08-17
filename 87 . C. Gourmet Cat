@@ -1,0 +1,75 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+#define all(v) v.begin(),v.end()
+ll const MOD=1e9+7;
+#define eb emplace_back
+ll const N=1e3+10;
+int main()
+{
+
+    fastread();
+
+     vector<ll>v({0,1,2,0,2,1,0,0,1,2,0,2,1,0});
+
+     ll a[4];
+     cin>>a[0]>>a[1]>>a[2];
+
+
+     ll mn=min(a[0]/3,min(a[1]/2,a[2]/2));
+     ll ans=mn*7;
+     a[0]-=(mn*3);
+     a[1]-=(mn*2);
+     a[2]-=(mn*2);
+     ll b[4];
+
+
+      ll mx=0;
+
+      for(ll i=0;i<v.size();i++)
+      {
+          b[0]=a[0];
+          b[1]=a[1];
+          b[2]=a[2];
+
+          ll cnt=0;
+
+          for(ll j=i;j<v.size();j++)
+          {
+
+              if(b[v[j]]==0)break;
+
+                  b[v[j]]--;
+                  cnt++;
+          }
+  // cout<<i<<" "<<cnt<<endl;
+
+        mx=max(mx,cnt);
+
+
+
+      }
+
+
+      cout<<ans+mx<<endl;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
