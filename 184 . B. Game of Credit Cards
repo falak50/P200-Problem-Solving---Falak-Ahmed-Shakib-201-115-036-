@@ -1,0 +1,100 @@
+#include<bits/stdc++.h>
+using namespace std;
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+#define all(x) x.begin(),x.end()
+void loop()
+{
+    for(ll i=0; i<10; i++) {};
+}
+
+
+int main()
+{
+    fastread();
+
+
+    ll n;
+
+    cin>>n;
+
+
+    string str,btr;
+
+    cin>>str>>btr;
+
+
+  sort(all(str),greater<char>());
+  sort(all(btr),greater<char>());
+
+
+  ll i=0,j=0;
+
+
+  ll cnt2=0;
+
+  while(i<n)
+  {
+
+      if(str[i]<btr[j])
+      {
+          j++;
+          cnt2++;
+      }
+
+      i++;
+  }
+
+
+  ll cnt1=0;
+  reverse(all(btr));
+  reverse(all(str));
+
+ // while()
+
+ map<ll,ll>mp;
+
+
+  i=0,j=0;
+
+  while(i<n and j<n)
+  {
+      if(str[i]<=btr[j])
+      {
+          cnt1++;
+          i++;
+          ///j++;
+      }
+      j++;
+
+  }
+
+
+
+  cout<<n-cnt1<<endl;cout<<cnt2<<endl;
+
+
+ //cout<<str<<endl;
+ // cout<<btr<<endl;
+
+
+
+
+
+
+
+
+
+}
