@@ -1,0 +1,79 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long  ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+#define   fastread(); (ios_base:: sync_with_stdio(false),cin.tie(NULL));
+#define vll(v) v.begin(),v.end()
+#define minheap int,vector<int>,greater<int>
+#define pb push_back
+#define eb emplace_back
+#define ff first
+#define ss second
+const int Max = 2e5 ;
+const int Mod = 1e9 + 7;
+const int N=1e6;
+bool com(pll a, pll b)
+{
+    return a.ss<b.ss;
+}
+int main()
+{
+   fastread();
+   ll n,hi,av;
+   cin>>n>>hi>>av;
+   vector<pll>v;
+   ll sum=0;
+   for(ll i=0;i<n;i++)
+   {
+       ll a,b;
+       cin>>a>>b;
+       sum+=a;
+       v.eb(a,b);
+   }
+   sort(vll(v),com);
+
+   ll ned=n*av;
+   ned-=sum;
+   //cout<<ned<<" "<<sum<<endl;
+
+   if(ned<=0)cout<<0<<endl;
+   else{
+    ll i=0;
+    ll ans=0;
+     while(i<n)
+     {
+         ll can=hi-v[i].ff;
+
+        if(can<ned)
+        {
+            ned-=can;
+            ans+=(v[i].ss*can);
+        } else{
+           ans+=(ned*v[i].ss);
+           ned=0;
+        //   cout<<i<<" i "<<endl;
+           break;
+        }
+
+
+        i++;
+
+     }
+
+
+    cout<<ans<<endl;
+
+
+   }
+
+
+
+
+
+
+
+
+
+}
