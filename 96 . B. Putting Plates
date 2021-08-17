@@ -1,0 +1,73 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+#define all(v) v.begin(),v.end()
+ll const MOD=1e9+7;
+#define eb emplace_back
+int main()
+{
+
+    fastread();
+
+
+
+    ll t;
+
+    cin>>t;
+
+
+    while(t--)
+    {
+
+        ll n,m;
+        cin>>n>>m;
+        string a,b;
+        vector<string>str;
+
+         string p;
+
+         for(ll i=0;i<=m+10;i++)
+         {
+             p+='0';
+         }
+   //cout<<p<<endl;
+      for(ll i=0;i<=n+10;i++)
+       {
+           str.pb(p);
+       }
+
+
+       for(ll i=1;i<=n;i++)
+       {
+           for(ll j=1;j<=m;j++)
+           {
+               if(i==1 or i==n or j==1 or j==m)
+               {
+                   if(str[i-1][j]=='0' and str[i-1][j-1]=='0' and str[i-1][j+1]=='0'  and str[i][j-1]=='0' )
+                   {
+                       str[i][j]='1';
+                   }
+               }
+
+               cout<<str[i][j];
+
+
+
+           }cout<<endl;
+       }
+
+
+
+
+
+
+
+
+    }
+
+}
