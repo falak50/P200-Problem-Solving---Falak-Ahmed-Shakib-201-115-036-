@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+#define all(v) v.begin(),v.end()
+ll const MOD=1e9+7;
+#define eb emplace_back
+ll const N=1e3+10;
+
+int main()
+{
+
+    fastread();
+
+   ll t;
+   cin>>t;
+
+
+   while(t--)
+   {
+       ll sum=0,i=1,cnt=0;
+       ll n;
+       cin>>n;
+       while(n>sum)
+       {
+           cnt++;
+           sum+=i;
+           i+=2;
+       }
+
+     cout<<cnt<<endl;
+
+
+
+   }
+
+
+
+
+
+
+}
