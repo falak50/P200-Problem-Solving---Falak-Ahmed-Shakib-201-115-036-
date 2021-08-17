@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+ll const MOD=1e9+7;
+#define eb emplace_back
+const int N=2e5+10;
+int main()
+{
+    fastread();
+
+
+    ll t;
+
+    cin>>t;
+
+    while(t--)
+    {
+
+
+    ll a1,b1,a2,b2,a3,b3;
+
+    cin>>a1>>b1;
+    cin>>a2>>b2;
+     cin>>a3>>b3;
+
+     ll sum=abs(a1-a2)+abs(b1-b2);
+
+     if(a1==a2 and a1==a3)
+     {
+         ll mn=min(b1,b2);
+         ll mx=max(b1,b2);
+      //  cout<<sum<<endl;
+         if(mn<=b3 and b3<=mx)sum+=2;
+
+     }else   if(b1==b2 and b1==b3)
+     {
+         ll mn=min(a1,a2);
+         ll mx=max(a1,a2);
+         if(mn<=a3 and a3<=mx)sum+=2;
+
+     }
+
+
+
+     cout<<sum<<endl;
+
+    }
+
+
+
+}
