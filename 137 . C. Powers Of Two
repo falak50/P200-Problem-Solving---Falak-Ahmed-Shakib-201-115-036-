@@ -1,0 +1,105 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define fi first
+#define se second
+#define pb push_back
+#define all(q) (q).begin(),(q).end()
+ll const MOD=1000000007;
+#define eb emplace_back
+const int N=10000005;
+
+int main()
+{
+    fastread();
+
+
+    vector<ll>v,ara;
+
+    ll sum=1;
+    ara.pb(sum);
+    for(ll i=1;i<=32;i++)
+    {
+        sum*=2;
+        ara.pb(sum);
+       /// cout<<sum<<endl;
+    }
+
+     ll n,k;
+
+     cin>>n>>k;
+
+     ll i=31;
+
+     while(n>0 )
+     {
+       while(n>=ara[i])
+       {
+          // cout<<n<<" "<<ara[i]<<endl;
+           n-=ara[i];
+           v.pb(ara[i]);
+       }
+       i--;
+
+     }
+
+
+   if(v.size()>k)cout<<"NO"<<endl;
+   else {
+
+        sort(all(v));
+        map<ll,ll>mp;
+
+        ll i=0;
+        k-=v.size();
+
+
+         while(k and i<v.size())
+         {
+             if(v[i]==1)
+             {
+                 i++;
+                 continue;
+             }
+
+             mp[i]=1;
+
+             v.pb(v[i]/2);
+             v.pb(v[i]/2);
+
+             k--;
+             i++;
+         }
+
+
+
+
+         if(k)cout<<"NO"<<endl;
+         else {
+
+
+            cout<<"YES"<<endl;
+
+         for(ll i=0;i<v.size();i++)
+         {
+             if(mp[i])continue;
+
+             cout<<v[i]<<" ";
+         }cout<<endl;
+
+
+         }
+
+
+
+
+
+   }
+
+
+
+
+
+}
