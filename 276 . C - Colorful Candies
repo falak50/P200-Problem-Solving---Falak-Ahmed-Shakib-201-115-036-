@@ -1,0 +1,69 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+#define all(v) v.begin(),v.end()
+ll const MOD=1e9+7;
+#define eb emplace_back
+const int N=1e5+10;
+ll mp[N+1];
+int main()
+{
+    fastread();
+
+
+  ll n,k;
+
+  cin>>n>>k;
+
+  ll ara[n+1];
+  for(ll i=0;i<n;i++)
+  {
+      cin>>ara[i];
+  }
+
+
+   ll sum=0,mx=0;
+
+   map<ll,ll>mp;
+
+
+   for(ll i=0;i<k;i++)
+   {
+       mp[ara[i]]++;
+       if(mp[ara[i]]==1)sum++;
+   }
+
+
+   ll i=k;
+   ll j=0;
+   mx=max(sum,mx);
+
+   while(i<n)
+   {
+       mp[ara[i]]++;
+
+       if(mp[ara[i]]==1)sum++;
+
+
+       mp[ara[j]]--;
+
+       if(mp[ara[j]]==0)sum--;
+
+       j++;
+       i++;
+
+       mx=max(sum,mx);
+
+
+   }
+
+   cout<<mx<<endl;
+
+
+
+}
