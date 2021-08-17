@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL));
+int main()
+{
+
+   fastread();
+
+
+    ll n;
+    cin>>n;
+
+    if(n<=125)cout<<4<<endl;
+    else if(n<=211)cout<<6<<endl;
+    else cout<<8<<endl;
+
+
+
+
+
+}
