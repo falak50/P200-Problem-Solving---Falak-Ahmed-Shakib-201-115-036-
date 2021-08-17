@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+int main()
+{
+    fastread();
+
+   ll t;
+
+   cin>>t;
+
+   while(t--)
+   {
+       ll n,m;
+
+       cin>>n>>m;
+
+       map<ll,ll>mp;
+
+       ll ara[n+m+1][n+m+1],bra[n+m+1][n+1+m];
+
+
+       for(ll i=0;i<n;i++)
+     {
+         for(ll j=0;j<m;j++)
+         {
+             cin>>ara[i][j];
+
+             mp[ara[i][j]]=i;
+         }
+     }
+
+     for(ll i=0;i<m;i++)
+     {
+         for(ll j=0;j<n;j++)
+         {
+             cin>>bra[i][j];
+             ll r=mp[bra[i][j]];
+             if(i==0)
+             {
+                for(ll k=0;k<m;k++)
+                {
+                    cout<<ara[r][k]<<" ";
+                }cout<<endl;
+             }
+         }
+     }
+
+
+
+   }
+
+
+
+}
