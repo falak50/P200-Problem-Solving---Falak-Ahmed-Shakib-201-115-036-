@@ -1,0 +1,275 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+#define all(x) x.begin(),x.end()
+void loop()
+{
+    for(ll i=0; i<10; i++) {};
+}
+
+ll n,m;
+bool call(ll i, ll j)
+{
+    if(i>=0 and j>=0 and i<n and j<m)return true;
+    else return false;
+
+
+}
+
+int main()
+{
+
+    fastread();
+
+
+
+    ll t;
+
+    cin>>t;
+
+    while(t--)
+    {
+
+        cin>>n>>m;
+
+        vector<string>str;
+
+        for(ll i=0; i<n; i++)
+        {
+            string s;
+            cin>>s;
+            str.pb(s);
+        }
+
+        ll  cnt=0;
+        for(ll i=0; i<n; i++)
+        {
+            for(ll j=0; j<m; j++)
+            {
+                if(str[i][j]=='R')str[i][j]='B';
+                if(str[i][j]!='.')cnt++;
+            }
+        }
+
+        //  cout<<cnt<<endl;
+
+
+        if(cnt==0)
+        {
+            str[0][0]='W';
+        }
+
+
+
+
+        ll  block=0;
+
+        bool f=true;
+
+        ll c=0;
+
+        while(block!=n*m and f and c<100)
+        {
+
+            c++;
+            for(ll i=0; i<n; i++)
+            {
+                for(ll j=0; j<m; j++)
+                {
+                    if(str[i][j]=='W')
+                    {
+
+                        if(call(i+1,j))
+                        {
+                            //cout<<"HIFH"<<endl;
+                            if(str[i+1][j]=='.')
+                            {
+                                str[i+1][j]='B';
+                            }
+
+                            else if(str[i][j]==str[i+1][j])
+                            {
+                                f=false;
+                                break;
+                            }
+                        }
+
+                        if(call(i-1,j))
+                        {
+                            if(str[i-1][j]=='.')
+                            {
+                                str[i-1][j]='B';
+                            }
+
+                            else if(str[i][j]==str[i-1][j])
+                            {
+                                f=false;
+                                break;
+                            }
+
+                        }
+                        if(call(i,j+1))
+                        {
+                            if(str[i][j+1]=='.')
+                            {
+                                str[i][j+1]='B';
+                            }
+
+                            else if(str[i][j]==str[i][j+1])
+                            {
+                                f=false;
+                                break;
+                            }
+
+
+                        }
+                        if(call(i,j-1))
+                        {
+                            if(str[i][j-1]=='.')
+                            {
+                                str[i][j-1]='B';
+                            }
+
+                            else if(str[i][j]==str[i][j-1])
+                            {
+                                f=false;
+                                break;
+                            }
+
+
+
+
+                        }
+
+
+
+                    }
+
+                    if(str[i][j]=='B')
+                    {
+
+                        if(call(i+1,j))
+                        {
+                            if(str[i+1][j]=='.')
+                            {
+                                str[i+1][j]='W';
+                            }
+
+                            if(str[i][j]==str[i+1][j])
+                            {
+                                f=false;
+                                break;
+                            }
+                        }
+                        if(call(i-1,j))
+                        {
+                            if(str[i-1][j]=='.')
+                            {
+                                str[i-1][j]='W';
+                            }
+
+                            else if(str[i][j]==str[i-1][j])
+                            {
+                                f=false;
+                                break;
+                            }
+
+                        }
+                        if(call(i,j+1))
+                        {
+                            if(str[i][j+1]=='.')
+                            {
+                                str[i][j+1]='W';
+                            }
+
+                            else if(str[i][j]==str[i][j+1])
+                            {
+                                f=false;
+                                break;
+                            }
+
+
+                        }
+                        if(call(i,j-1))
+                        {
+                            if(str[i][j-1]=='.')
+                            {
+                                str[i][j-1]='W';
+                            }
+
+                            else if(str[i][j]==str[i][j-1])
+                            {
+                                f=false;
+                                break;
+                            }
+
+
+
+
+                        }
+
+
+
+                    }
+
+
+                }
+            }
+
+
+
+
+            block=0;
+
+
+            for(ll i=0; i<n; i++)
+            {
+                for(ll j=0; j<m; j++)if(str[i][j]!='.')block++;
+            }
+
+
+
+        }
+
+
+
+        if(f)
+        {
+            cout<<"YES"<<endl;
+
+
+            for(ll i=0; i<n; i++)
+            {
+              for(ll j=0;j<m;j++)
+              {
+                  if(str[i][j]=='B')str[i][j]='R';
+                  cout<<str[i][j];
+              }cout<<endl;
+            }
+        }
+        else cout<<"NO"<<endl;
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+}
