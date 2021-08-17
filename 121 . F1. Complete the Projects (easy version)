@@ -1,0 +1,68 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+ll const MOD=998244353;
+#define eb emplace_back
+const int N=2e5+10;
+ll ara[N],cum[N],ans[N+1];
+bool com(pll a,pll b)
+{
+    if(a.ss>=0 and b.ss>=0)return a.ff<b.ff;
+    else if(a.ss<0 and b.ss<0)return a.ff+a.ss>b.ff+b.ss;
+    else return a.ss>=0;
+}
+int main()
+{
+
+    fastread();
+
+
+    ll n,sum;
+
+    cin>>n>>sum;
+
+    vector<pll>v;
+
+    for(ll i=0;i<n;i++)
+    {
+        ll a,b;
+        cin>>a>>b;
+        v.eb(a,b);
+    }
+    sort(v.begin(),v.end(),com);
+
+
+   // cout<<endl;
+
+   // for(ll i=0;i<n;i++)
+    {
+       // cout<<v[i].ff<<" "<<v[i].ss<<endl;
+    }
+
+
+    ll f=true;
+
+    for(ll i=0;i<n;i++)
+    {
+        if(v[i].ff<=sum)
+        {
+            sum+=v[i].ss;
+        }else f=false;
+    }
+
+
+    if(f and sum>=0)cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
+
+
+
+
+
+
+
+}
