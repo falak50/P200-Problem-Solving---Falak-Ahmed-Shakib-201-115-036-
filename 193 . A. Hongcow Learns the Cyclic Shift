@@ -1,0 +1,60 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+#define all(x) x.begin(),x.end()
+void loop()
+{
+    for(ll i=0; i<10; i++) {};
+}
+
+int main()
+{
+
+    fastread();
+
+  string  str;
+
+  cin>>str;
+
+
+  set<string>st;
+
+   st.insert(str);
+
+ ll t=str.size()+3;
+
+ ll f=0,s=0;
+ while(f<str.size())
+{
+    string ss;
+       for(ll i=s;str[i];i++)
+     {
+          ss+=str[i];
+     }
+     for(ll i=0;i<f;i++)
+     {
+         ss+=str[i];
+     }
+  //   cout<<ss<<endl;
+    f++;
+    s++;
+    st.insert(ss);
+
+
+ }
+
+
+   cout<<st.size()<<endl;
+
+}
