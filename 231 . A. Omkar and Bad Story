@@ -1,0 +1,88 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+int main()
+{
+    fastread();
+
+    ll t;
+
+    cin>>t;
+
+  while(t--)
+  {
+
+      ll n;
+
+      cin>>n;
+
+      map<ll,ll>mp;
+
+      ll ara[n+1];
+
+      vector<ll>v;
+
+      for(ll i=0;i<n;i++)
+      {
+          cin>>ara[i];
+
+          v.pb(ara[i]);
+
+          mp[ara[i]]=1;
+      }
+
+
+
+   // sort(v.begin(),v.end());
+
+
+
+        for(ll i=0;i<v.size();i++)
+        {
+            if(v.size()>300)break;
+             for(ll j=0;j<v.size();j++)
+             {
+                 if(v[i]==v[j])continue;
+                 ll a=abs(v[i]-v[j]);
+
+                 if(mp[a]==0)
+                 {
+                     v.pb(a);
+                     mp[a]=1;
+                        if(v.size()>300)break;
+                 }
+             }
+
+    }
+
+
+  if(v.size()<=300)
+  {
+      cout<<"YES"<<endl;
+      cout<<v.size()<<endl;
+
+      for(auto x:v)cout<<x<<" ";cout<<endl;
+
+
+  }else cout<<"NO"<<endl;
+
+
+
+  }
+
+
+
+
+
+}
