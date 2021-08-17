@@ -1,0 +1,65 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+#define all(v) v.begin(),v.end()
+ll const MOD=1e9+7;
+#define eb emplace_back
+
+const int N=1e6;
+int ara[1000010];
+
+
+
+void sieve()
+{
+      ara[0]=1;
+      ara[1]=1;
+
+      int i,j,sz=sqrt(N);
+
+      for(i=2; i<=sz; i++)
+      {
+          if(ara[i]==0)
+          {
+              for(j=i*2; j<=N; j+=i)
+              {
+                  ara[j]=1;
+              }
+          }
+      }
+}
+
+
+
+int main()
+{
+
+    fastread();
+
+    sieve();
+
+
+
+
+    ll x,y;
+    cin>>x>>y;
+
+ bool f=true;
+
+ if(ara[x]==1 or ara[y]==1)f=false;
+
+ for(ll i=x+1;i<y;i++)
+ {
+     if(ara[i]==0)f=false;
+ }
+
+
+ if(f)cout<<"YES"<<endl;
+ else cout<<"NO"<<endl;
+
+}
