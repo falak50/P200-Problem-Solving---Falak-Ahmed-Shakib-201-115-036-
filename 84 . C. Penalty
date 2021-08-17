@@ -1,0 +1,104 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+#define all(v) v.begin(),v.end()
+ll const MOD=1e9+7;
+#define eb emplace_back
+ll const N=1e3+10;
+vector<string>v;
+void call(string str,ll i)
+{
+     if(i==10)
+     {
+         v.pb(str);
+         return ;
+     }
+     if(str[i]=='?')
+     {
+          str[i]='0';
+          call(str,i+1);
+          str[i]='1';
+          call(str,i+1);
+
+     }else call(str,i+1);
+
+
+
+}
+int main()
+{
+
+    fastread();
+
+   ll t;
+
+   cin>>t;
+
+    while(t--)
+    {
+        v.clear();
+        string str;
+        cin>>str;
+       call(str,0ll);
+
+ //  cout<<v.size()<<endl;
+    ll n=v.size();
+
+    ll mn=10;
+   for(ll i=0;i<n;i++)
+   {
+    ll ara[10];
+    ara[0]=5;
+    ara[1]=5;
+    ll g[5];
+    g[0]=0;
+    g[1]=0;
+
+     string s=v[i];
+    // cout<<s<<endl;
+    ll cnt=0;
+     for(ll j=0;s[j];j++)
+     {
+          cnt++;
+          g[j%2]+=(s[j]=='1');
+          ara[j%2]--;
+          if(ara[0]+g[0]<g[1])break;
+          if(ara[1]+g[1]<g[0])break;
+
+          //cout<<cnt<<" "<<g[0]<<" + "<<ara[0]<<" -->"<<g[1]<<" + "<<ara[1]<<endl;
+
+     }
+
+
+     mn=min(cnt,mn);
+
+
+
+   }
+
+   cout<<mn<<endl;
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+}
