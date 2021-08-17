@@ -1,0 +1,80 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+#define all(x) x.begin(),x.end()
+void loop()
+{
+    for(ll i=0; i<10; i++) {};
+}
+const int N=1e6;
+
+int ara[1000010];
+int bara[1000010];
+
+
+void sieve()
+{
+      ara[0]=1;
+      ara[1]=1;
+
+      int i,j,sz=sqrt(N);
+
+      for(i=2; i<=sz; i++)
+      {
+          if(ara[i]==0)
+          {
+              for(j=i*2; j<=N; j+=i)
+              {
+                  ara[j]=1;
+              }
+          }
+      }
+}
+
+
+int main()
+{
+
+    fastread();
+
+
+    sieve();
+
+
+    ll m,d;
+
+cin>>m>>d;
+
+  ll n;
+  n=m;
+  if(m==2)n=28;
+  else if(n==1 or n==3 or n==5 or n==7 or n==8 or n==10 or n==12)n=31;
+  else n=30;
+
+
+
+  n=n-(7-d+1);
+
+ll ans=1;
+
+ans+=(n/7);
+
+if(n%7)ans++;
+
+
+cout<<ans<<endl;
+
+
+
+}
