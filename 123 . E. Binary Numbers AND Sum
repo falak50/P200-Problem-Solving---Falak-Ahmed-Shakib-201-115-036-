@@ -1,0 +1,74 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define fi first
+#define se second
+#define pb push_back
+ll const MOD=998244353;
+#define eb emplace_back
+const int N=2e5+10;
+ll ara[N],cum[N],ans[N+1];
+int main()
+{
+
+    fastread();
+
+    ll ara[N+1];
+    ara[0]=1;
+    for(ll i=1;i<=N;i++)
+    {
+        ara[i]=ara[i-1]*2;
+        ara[i]%=MOD;
+    }
+
+    ll n,m;
+    cin>>n>>m;
+    string s,s1;
+    cin>>s>>s1;
+    reverse(s.begin(),s.end());
+    reverse(s1.begin(),s1.end());
+
+    if(s1[0]=='1')cum[0]=1;
+    for(ll i=1;s1[i];i++)
+    {
+        if(s1[i]=='1')cum[i]=cum[i-1]+1;
+        else cum[i]=cum[i-1];
+        // cout<<i<<" "<<cum[i]<<endl;
+    }
+
+
+
+
+    ll d=min(n,m);
+
+    for(ll i=0;i<d;i++)
+    {
+         if(s[i]=='1')
+         {
+               ans[i]=cum[m-1]-cum[i];
+               if(s1[i]=='1')ans[i]++;
+         }
+    }
+
+
+    ll sum=0;
+
+    for(ll i=0;i<d;i++)
+    {
+        sum+=((ans[i]*ara[i])%MOD);
+        sum%=MOD;
+    }
+
+
+    cout<<sum<<endl;
+
+
+
+
+
+
+
+
+}
