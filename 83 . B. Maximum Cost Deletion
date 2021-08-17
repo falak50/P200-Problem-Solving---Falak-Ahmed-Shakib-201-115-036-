@@ -1,0 +1,70 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+#define all(v) v.begin(),v.end()
+ll const MOD=1e9+7;
+#define eb emplace_back
+ll const N=1e3+10;
+
+int main()
+{
+
+    fastread();
+
+
+    ll t;
+    cin>>t;
+
+    while(t--)
+    {
+        ll n,a,b;
+        cin>>n>>a>>b;
+        ll sum=n*a;
+
+
+        ll one=0,zero=0;
+
+        string str;
+        cin>>str;
+
+
+        if(b>=0)
+        {
+            cout<<sum+b*n<<endl;
+
+
+        }else {
+
+         one+=(str[0]=='1');
+         zero+=(str[0]=='0');
+
+         for(ll i=1;str[i];i++)
+         {
+             if(str[i]=='1' and str[i-1]=='0')one++;
+             if(str[i]=='0' and str[i-1]=='1')zero++;
+         }
+
+       //  cout<<sum<<" "<<zero<<" "<<one<<endl;
+         sum+=((min(zero,one)+1)*b);
+
+
+         cout<<sum<<endl;
+
+
+
+        }
+    }
+
+
+
+
+
+
+
+
+}
