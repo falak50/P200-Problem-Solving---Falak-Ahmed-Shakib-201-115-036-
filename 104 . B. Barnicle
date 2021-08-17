@@ -1,0 +1,107 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long    ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+#define all(v) v.begin(),v.end()
+ll const MOD=1e9+7;
+#define eb emplace_back
+const int N=2e5+10;
+int main()
+{
+    fastread();
+
+
+    string str;
+
+    cin>>str;
+
+
+  ll n=str.size();
+    ll k=str[n-1]-'0';
+
+
+    if(str[n-2]!='e')
+    {
+        k+=(10*(str[n-2]-'0'));
+      // cout<<str[n-2]<<" "<<k<<endl;
+
+        if(str[str.size()-3]!='e')
+        {
+            k+=(100*(str[str.size()-3]-'0'));
+        }
+    }
+
+   //cout<<k<<endl;
+
+
+
+    string s;
+    ll i=0;
+    bool f=false;
+
+    while(i<str.size() and str[i]!='e')
+    {
+        if(f)
+        {
+
+            if(k>0)
+            {
+                s+=str[i];
+                k--;
+                i++;
+            }else {
+             s+='.';
+             f=false;
+            }
+
+        }else if(str[i]=='.')
+        {
+            f=true;
+            i++;
+            continue;
+        }else{
+
+        s+=str[i];
+        i++;
+
+        }
+    }
+
+
+ while(k--)s+='0';
+
+ ll e=s.size()-1;
+
+
+ bool ok=false;
+
+ for(ll i=0;s[i];i++)
+ {
+     if(s[i]=='.')ok=true;
+ }
+
+
+
+ if(ok)
+ {
+
+
+ for(ll i=e;i>0;i--)
+ {
+     if(s[i]=='0')
+     {
+         e=i-1;
+     }else break;
+ }
+ if(str[e]=='.')e--;
+ }
+for(ll i=0;i<=e;i++)cout<<s[i];cout<<endl;
+
+
+
+
+}
