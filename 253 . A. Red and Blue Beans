@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+
+int main()
+{
+    fastread();
+
+  ll t;
+
+  cin>>t;
+
+  while(t--)
+  {
+      ll a,b,d;
+
+      cin>>a>>b>>d;
+
+
+       ll mx=max(a,b);
+       ll mn=min(a,b);
+
+       ll ok=d+1;
+  //cout<<ok<<" "<<mn<<" "<<ok*mn<<endl;
+       if(mn*ok>=mx)cout<<"YES"<<endl;
+       else cout<<"NO"<<endl;
+
+
+  }
+
+
+
+
+
+}
