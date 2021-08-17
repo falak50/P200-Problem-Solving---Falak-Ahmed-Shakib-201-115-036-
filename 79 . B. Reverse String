@@ -1,0 +1,93 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+#define all(v) v.begin(),v.end()
+ll const MOD=1e9+7;
+#define eb emplace_back
+ll const N=1e3+10;
+ll aa,bb;
+string a,b;
+bool f=false;
+void call(ll i,ll j,ll type)
+{
+    if(j==bb){
+
+     f=true;
+    return ;
+    }
+    if(i==aa)return;
+
+    if(type)
+    {
+
+    if(i-1>=0 and a[i-1]==b[j])
+    {
+        call(i-1,j+1,0);
+
+    }
+
+    if(i+1<aa and a[i+1]==b[j])
+    {
+        call(i+1,j+1,1);
+    }
+
+
+    }else{
+
+      if(i-1>=0 and a[i-1]==b[j])
+    {
+        call(i-1,j+1,0);
+
+    }
+
+
+
+    }
+
+
+
+
+}
+int main()
+{
+
+    fastread();
+
+   ll t;
+   cin>>t;
+
+   while(t--)
+   {
+
+       cin>>a>>b;
+       aa=a.size();
+       bb=b.size();
+       f=false;
+      for(ll i=0;a[i];i++)
+      {
+          if(a[i]==b[0])
+          {
+              call(i,1,1);
+          }
+
+          if(f)break;
+
+      }
+      if(f)cout<<"YES"<<endl;
+      else cout<<"NO"<<endl;
+
+   }
+
+
+
+
+
+
+
+}
+ 
