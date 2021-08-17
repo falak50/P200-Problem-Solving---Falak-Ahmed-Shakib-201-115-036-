@@ -1,0 +1,80 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+#define sf(a) scanf("%I64d",&a)
+#define pf(a) printf("%I64d\n",a)
+#define mem(a,b)     memset(a,b,sizeof(a))
+#define vll(v) v.begin(),v.end()
+#define all(x) x.rbegin(),x.rend()
+#define F first
+#define S second
+#define ff first
+#define ss second
+#define minheap int,vector<int>,greater<int>
+#define mp make_pair
+#define pb push_back
+#define pp pop_back
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL));
+const int Max =1e5 ;
+const int Mod = 1e9 + 7;
+int main()
+{
+    fastread();
+
+
+    ll n,k;
+
+    cin>>n>>k;
+
+
+    vector<pll>v;
+
+
+    for(ll i=0;i<n;i++)
+    {
+        ll a,b;
+
+        cin>>a>>b;
+
+        v.pb({a,b});
+
+    }
+
+
+    sort(v.begin(),v.end());
+
+    ll s=k;
+   ll i=0;
+
+
+
+   while(i<n)
+   {
+        if(s>=v[i].ff)
+        {
+            s+=v[i].ss;
+
+        }else break;
+
+       i++;
+   }
+
+
+
+
+
+   cout<<s<<endl;
+
+
+
+
+
+
+
+
+
+
+}
