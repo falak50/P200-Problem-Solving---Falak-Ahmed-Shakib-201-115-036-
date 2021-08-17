@@ -1,0 +1,88 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+#define all(x) x.begin(),x.end()
+void loop()
+{
+    for(ll i=0; i<10; i++) {};
+}
+int main()
+{
+
+    fastread();
+
+    ll n,q;
+
+    cin>>n>>q;
+
+    ll ara[n+1];
+
+    for(ll i=1;i<=n;i++)
+    {
+        cin>>ara[i];
+    }
+
+    ll bra[q+1],b[q+1];
+    for(ll i=0;i<q;i++)
+    {
+        cin>>bra[i];
+        b[i]=bra[i];
+    }
+
+    map<ll,ll>mp;
+
+    ll use[n+100];
+    ara[0]=0;
+    use[0]=0;
+    for(ll i=1;i<=n;i++)
+    {
+        use[i]=(ara[i]-ara[i-1]-1)+use[i-1];
+    }
+
+   // for(ll i=1;i<=n;i++)
+   // {
+       // cout<<use[i]<<" ";
+   // }//cout<<endl;
+
+
+    sort(b,b+q);
+    use[n+1]=1e18+1e6;
+  ll j=0;
+  use[0]=0;
+    for(ll i=0;i<q;i++)
+    {
+
+          ll ned=b[i];
+
+
+
+         while(use[j]<ned)
+         {
+             j++;
+         }
+
+        // cout<<use[j-1]<<" "<<ned<<" "<<j<<endl;
+
+         mp[ned]=ara[j-1]+(ned-use[j-1]);
+    }
+
+    for(ll i=0;i<q;i++)
+    {
+        cout<<mp[bra[i]]<<endl;
+    }
+
+
+
+
+}
