@@ -1,0 +1,67 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef int   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+#define all(v) v.begin(),v.end()
+ll const MOD=1e9+7;
+#define eb emplace_back
+const int N=2e5+10;
+int main()
+{
+    fastread();
+
+
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll n;
+        cin>>n;
+        ll ara[n+1];
+        for(ll i=0;i<n;i++)
+        {
+            cin>>ara[i];
+        }
+        vector<ll>a,b;
+
+        for(ll i=0;i<n;i++)
+        {
+            if(i%2)a.pb(ara[i]);
+            else b.pb(ara[i]);
+        }
+
+        sort(all(a));
+        sort(all(b));
+
+        vector<ll>v;
+
+      ll i=0,j=0;
+
+      for(ll k=0;k<n;k++)
+      {
+          if(k%2)
+          {
+              v.pb(a[i]);
+              i++;
+          }else {
+             v.pb(b[i]);
+          }
+      }
+
+      if(is_sorted(all(v)))
+      {
+          cout<<"YES"<<endl;
+      }else cout<<"NO"<<endl;
+
+
+    }
+
+
+
+
+
+}
