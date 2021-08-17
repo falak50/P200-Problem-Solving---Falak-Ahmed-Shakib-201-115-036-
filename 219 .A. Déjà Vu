@@ -1,0 +1,79 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+int main()
+{
+    fastread();
+
+    ll t;
+    cin>>t;
+
+
+    while(t--)
+    {
+         string str;
+
+
+         cin>>str;
+
+         ll n=0;
+         ll cnt=0;
+
+
+         for(ll i=0;str[i];i++)
+         {
+             if(str[i]=='a')cnt++;
+
+
+             n++;
+         }
+
+
+
+        if(n==cnt)cout<<"NO"<<endl;
+        else{
+
+
+                cout<<"YES"<<endl;
+            string s1=str+"a";
+            string s2="a"+str;
+
+
+             string s11=s1;
+
+             string s22=s1;
+
+          reverse(s11.begin(),s11.end());
+
+
+          reverse(s22.begin(),s22.end());
+
+
+
+
+        if(s1!=s11)cout<<s1<<endl;
+        else cout<<s2<<endl;
+
+
+        }
+
+
+
+    }
+
+
+
+
+
+}
