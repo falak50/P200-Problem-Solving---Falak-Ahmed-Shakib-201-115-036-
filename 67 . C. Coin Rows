@@ -1,0 +1,70 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL));
+#define all(v) v.begin(),v.end()
+#define min3(a, b, c)   min(a, min(b, c))
+#define max3(a, b, c)   max(a, max(b, c))
+#define sf(a) scanf("%d",&a)
+#define pf(a) printf("%d",a);
+#define ff first
+#define ss second
+#define minheap int,vector<int>,greater<int>
+#define pb push_back
+#define eb emplace_back
+#define ischar(x)  (('a' <= x && x <= 'z') || ('A' <= x && x <= 'Z'))
+#define isvowel(ch) ((ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')||(ch=='A'|| ch=='E' || ch=='I'|| ch=='O'|| ch=='U'))
+#define bug cout<<"BUG"<<endl;
+const ll N=1e6;
+int main()
+{
+    fastread();
+
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll n;
+        cin>>n;
+        ll a[n+1],b[n+1];
+        for(ll i=1;i<=n;i++)cin>>a[i];
+        for(ll i=1;i<=n;i++)cin>>b[i];
+        ll aa[n+1],bb[n+1];
+        aa[0]=bb[0]=0;
+        for(ll i=1;i<=n;i++)
+        {
+            aa[i]=aa[i-1]+a[i];
+            bb[i]=bb[i-1]+b[i];
+        }
+        ll ans=1e9;
+        for(ll i=1;i<=n;i++)
+        {
+            ll down=bb[i-1];
+            ll up=aa[n]-aa[i];
+            ll cur_mx=max(up,down);
+            ans=min(ans,cur_mx);
+        }
+
+
+        cout<<ans<<endl;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+}
