@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+ll const MOD=998244353;
+#define eb emplace_back
+const int N=2e5+10;
+int main()
+{
+
+    fastread();
+
+   ll t,x,y;
+
+   cin>>t>>x>>y;
+
+   set<array<ll,2>>s;
+   while(t--)
+   {
+       ll a,b;
+       cin>>a>>b;
+
+       a=(x-a);
+       b=(y-b);
+       ll g=__gcd(a,b);
+       a/=g;
+       b/=g;
+       s.insert({a,b});
+   }
+
+
+   cout<<s.size()<<endl;
+
+
+
+
+
+
+
+
+}
