@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long  ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+#define bismillah; (ios_base:: sync_with_stdio(false),cin.tie(NULL));
+#define vll(v) v.begin(),v.end()
+#define all(x) x.rbegin(),x.rend()
+#define min3(a, b, c)   min(a, min(b, c))
+#define max3(a, b, c)   max(a, max(b, c))
+#define pb push_back
+#define eb emplace_back
+#define ff first
+#define ss second
+ll const N=2e6;
+
+
+int main()
+{
+
+
+    ll  n;
+
+    cin>>n;
+
+
+    ll a=1000;
+    ll cnt=0,temp,z=0;
+    while(n>=a)
+    {
+        temp=n-a+1;
+
+        cnt+=max(temp,z);
+
+        a*=1000;
+
+
+    }
+
+      cout<<cnt<<endl;
+
+
+
+}
