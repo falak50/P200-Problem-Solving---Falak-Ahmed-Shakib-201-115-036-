@@ -1,0 +1,85 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+#define all(x) x.begin(),x.end()
+void loop()
+{
+    for(ll i=0; i<10; i++) {};
+}
+const ll N=2005,mod=1000000007;
+int main()
+{
+  fastread();
+
+   vector<ll>v( {31 , 28 , 31 , 30 , 31 , 30 , 31 , 31 , 30 , 31 , 30 , 31 ,  31 , 28 , 31 , 30 , 31 , 30 , 31 , 31 , 30 , 31 , 30 , 31, 31 , 28 , 31 , 30 , 31 , 30 , 31 , 31 , 30 , 31 , 30 , 31 ,  31 , 28 , 31 , 30 , 31 , 30 , 31 , 31 , 30 , 31 , 30 , 31,-1 ,-1, 0});
+
+   ll n;cin>>n;
+   ll ara[n+1];
+
+  ll lep=0;
+  for(ll i=0;i<n;i++)
+  {
+      cin>>ara[i];
+      if(ara[i]==29)lep++;
+  }
+
+
+  bool f=false;
+
+
+  for(ll i=0;i<v.size();i++)
+  {
+      bool ok=true;
+
+      for(ll j=0;j<n and i+j<v.size();j++)
+      {
+          if(ara[j]==29 and v[i+j]==28)continue;
+           if(ara[j]!=v[i+j])
+           {
+                    ok=false;
+
+                  //  cout<<i<<endl;
+                break;
+           }
+
+
+      }
+      if(ok)
+      {
+          f=true;
+          break;
+      }
+  }
+
+
+  if(f and lep<2)cout<<"YES"<<endl;
+  else cout<<"NO"<<endl;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+ 
