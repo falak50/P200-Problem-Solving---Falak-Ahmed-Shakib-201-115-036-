@@ -1,0 +1,91 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+ll const N=2e6;
+vector<ll>v[N+1];
+bool vis[N+1];
+bool f;
+ll ara[N+1];
+ll n,m;
+void input()
+{
+
+  cin>>n>>m;
+
+  for(ll i=1;i<=n;i++)
+  {
+   cin>>ara[i];
+  }
+
+  n--;
+
+  while(n--)
+  {
+      ll a,b;
+
+      cin>>a>>b;
+
+      v[a].push_back(b);
+      v[b].push_back(a);
+  }
+
+}
+ll cnt=0;
+void dfs(ll s,ll c)
+{
+    vis[s]=true;
+     if(v[s].size()==1 && s!=1 && m>c)
+     {
+         cnt++;
+     }
+
+     if(m==c)return;
+
+     for(auto x:v[s])
+     {
+
+         if(!vis[x])
+         {
+
+
+             if(ara[x]==1 && ara[s]==1)
+                {
+                    dfs(x,c+1);
+                }else  dfs(x,0);
+
+
+         }
+
+
+
+
+
+     }
+
+
+
+
+
+
+
+
+
+
+
+}
+int main()
+{
+  fastread();
+
+  input();
+
+  dfs(1,0);
+
+
+  cout<<cnt<<endl;
+
+
+
+
+}
