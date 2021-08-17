@@ -1,0 +1,103 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long  ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+#define vll(v) v.begin(),v.end()
+#define all(x) x.rbegin(),x.rend()
+#define min3(a, b, c)   min(a, min(b, c))
+#define max3(a, b, c)   max(a, max(b, c))
+#define pb push_back
+#define eb emplace_back
+#define ff first
+#define ss second
+const ll N=1000000;
+vector<ll>v[N+10];
+vector<ll>oder;
+bool vis[N+100];
+bool flag;
+ll  n,m,l;
+ll  forwrd[N+1],backwrd[N+1];
+ll cnt=0;
+vector<ll>ans;
+void DFS(ll s)
+{
+    vis[s]=true;
+    cnt++;
+    ans.pb(s);
+
+
+
+
+
+
+    forwrd[s]=cnt;
+    for(auto x:v[s])
+    {
+        if(!vis[x])
+        {
+            DFS(x);
+            ans.pb(s);
+        }
+      //  ans.pb(s);
+    }
+    cnt++;
+
+
+
+    backwrd[s]=cnt;
+}
+void input()
+{
+    cin>>n;
+
+    for(ll i=1;i<n;i++)
+    {
+
+        ll a,b;
+        cin>>a>>b;
+        v[a].pb(b);
+        v[b].pb(a);
+
+    }
+    for(ll i=1; i<=n; i++)
+    {
+        sort(vll(v[i]));
+    }
+
+}
+int main()
+{
+
+    input();
+
+    ans.eb(1);
+
+    for(ll i=1;i<=n;i++)
+    {
+
+        if(vis[i])continue;
+        DFS(i);
+    }
+
+
+
+
+   // for(auto x:ans)cout<<x<<" ";cout<<endl;
+
+
+  cout<<ans[0]<<" ";
+    for(ll i=1;i<ans.size();i++)
+    {
+        if(ans[i]==ans[i-1])continue;
+        cout<<ans[i]<<" ";
+    }cout<<endl;
+
+
+
+
+
+
+}
+
