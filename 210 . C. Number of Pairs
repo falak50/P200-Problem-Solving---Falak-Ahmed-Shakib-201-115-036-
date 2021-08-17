@@ -1,0 +1,75 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+#define all(x) x.begin(),x.end()
+void loop()
+{
+    for(ll i=0;i<10;i++){};
+}
+int main()
+{
+    fastread();
+
+
+
+   ll t;
+
+   cin>>t;
+
+   while(t--)
+  {
+
+      ll n,l,r;
+
+      cin>>n>>l>>r;
+
+      vector<ll>v;
+
+      for(ll i=0;i<n;i++)
+      {
+          ll a;
+          cin>>a;
+          v.pb(a);
+      }
+
+      sort(all(v));
+
+      ll sum=0;
+
+      for(ll i=0;i<n;i++)
+      {
+          ll p=upper_bound(all(v),l-v[i]-1)-v.begin();
+          if(p<=i)p=i+1;
+          ll q=upper_bound(all(v),r-v[i])-v.begin();
+          if(q<=i)q=i+1;
+
+          sum+=(q-p);
+      }
+
+
+      cout<<sum<<endl;
+
+
+
+
+
+
+
+
+  }
+
+
+
+
+}
