@@ -1,0 +1,93 @@
+// C++ program to print all prime factors
+#include <bits/stdc++.h>
+using namespace std;
+
+// A function to print all prime
+// factors of a given number n
+int  primeFactors(int n)
+{
+
+    int cnt=0;
+    // Print the number of 2s that divide n
+    while (n % 2 == 0)
+    {
+       // cout << 2 << " ";
+        cnt++;
+        n = n/2;
+    }
+
+    // n must be odd at this point. So we can skip
+    // one element (Note i = i +2)
+    for (int i = 3; i <= sqrt(n); i = i + 2)
+    {
+        // While i divides n, print i and divide n
+        while (n % i == 0)
+        {
+            cnt++;
+          // cout << i << " ";
+            n = n/i;
+        }
+    }
+
+    // This condition is to handle the case when n
+    // is a prime number greater than 2
+    if (n > 2)cnt++;
+        //cout << n << " ";
+       return cnt;
+}
+
+/* Driver code */
+int main()
+{
+
+    int t;
+
+    cin>>t;
+
+
+        for(int i=0;i<1000;i++)
+        {
+
+        }
+
+    while(t--)
+    {
+
+        for(int i=0;i<1000;i++)
+        {
+
+        }
+
+
+   int a,b,k;
+   cin>>a>>b>>k;
+
+    int  aa= primeFactors(a);
+    int bb=primeFactors(b);
+
+//    /cout<<aa<<" "<<bb<<endl;
+
+
+    int sum=aa+bb;
+
+
+     if(k==1)
+     {
+         if(a!=b and (a%b==0 or b%a==0))cout<<"YES"<<endl;
+         else cout<<"NO"<<endl;
+     }else if(sum>=k)cout<<"YES"<<endl;
+     else cout<<"NO"<<endl;
+
+
+
+
+    }
+
+
+        for(int i=0;i<1000;i++)
+        {
+
+        }
+}
+
+// This is code is contributed by rathbhupendra
