@@ -1,0 +1,74 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+#define all(v) v.begin(),v.end()
+ll const MOD=1e9+7;
+#define eb emplace_back
+ll const N=1e3+10;
+int main()
+{
+
+    fastread();
+
+  ll t;
+  cin>>t;
+
+  while(t--)
+  {
+      ll n,m;
+      cin>>n>>m;
+      string str[n+10];
+      for(ll i=0;i<n;i++)cin>>str[i];
+
+
+
+      ll row[n+1],col[m+1];
+
+      for(ll i=0;i<n;i++)
+      {
+         row[i]=0;
+          for(ll j=0;j<m;j++)
+          {
+              row[i]+=(str[i][j]=='.');
+          }
+      }
+
+      for(ll i=0;i<m;i++)
+      {
+          col[i]=0;
+          for(ll j=0;j<n;j++)
+          {
+              col[i]+=(str[j][i]=='.');
+          }
+      }
+
+    ll mn=m+n-1;
+
+   // for(ll i=0;i<n;i++)cout<<row[i]<<" ";cout<<endl;
+   // for(ll i=0;i<m;i++)cout<<col[i]<<" ";cout<<endl;
+
+      for(ll i=0;i<n;i++)
+      {
+        for(ll j=0;j<m;j++)
+      {
+        ll temp=row[i]+col[j];
+        if(str[i][j]=='.')temp--;
+        mn=min(mn,temp);
+      }
+
+      }
+
+      cout<<mn<<endl;
+
+
+
+
+  }
+
+
+}
