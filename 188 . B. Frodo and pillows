@@ -1,0 +1,109 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+#define all(x) x.begin(),x.end()
+void loop()
+{
+    for(ll i=0; i<10; i++) {};
+}
+const int N=1e6;
+ll n,p,k;
+int  call(ll h)
+{
+    ll use=h;
+
+    ll ned=h-1;
+
+
+    ll  pre=ned*(ned+1)/2;
+    ll suf=ned*(ned+1)/2;
+
+    if(k-1<ned)
+    {
+        ll nn=ned-(k-1);
+
+        pre-=((nn*(nn+1))/2);
+    }else
+    {
+     pre+=(k-1)-ned;
+    }
+
+    ll dor=n-k;
+
+    if(n-k<ned)
+    {
+        ll nn=ned-dor;
+
+        suf-=((nn*(nn+1))/2);
+    }else{
+
+    suf+=(n-k)-ned;
+
+    }
+
+
+ //cout<<use<<" "<<pre<<" "<<suf<<" "<<p<<endl;
+
+ ll total=use+pre+suf;
+
+// cout<<total<<" "<<p<<endl;
+
+ if(total>p)return 0;
+ else return 1;
+
+
+}
+int main()
+{
+
+    fastread();
+
+
+
+    cin>>n>>p>>k;
+
+
+    ll b=1;
+    ll e=p;
+    ll m;
+    ll ans=1;
+
+    while(b<=e)
+    {
+
+         m=(b+e)/2;
+
+
+       // cout<<m<<endl;
+
+         if(call(m))
+         {
+            // cout<<m<<" dd  "<<endl;
+           ans=max(m,ans);
+           b=m+1;
+         }else{
+
+         e=m-1;
+
+         }
+
+
+    }
+
+
+
+    cout<<ans<<endl;
+
+
+}
