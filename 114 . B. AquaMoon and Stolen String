@@ -1,0 +1,90 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef int   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+ll const MOD=1e9+7;
+#define eb emplace_back
+const int N=2e5+10;
+int main()
+{
+    fastread();
+
+   ll t;
+
+   cin>>t;
+
+   while(t--)
+   {
+       ll n,m;
+       cin>>n>>m;
+
+       vector<string>v,v1;
+
+       for(ll i=0;i<n;i++)
+       {
+           string str;
+           cin>>str;
+           v.pb(str);
+       }
+
+
+         for(ll i=0;i<n-1;i++)
+       {
+           string str;
+           cin>>str;
+           v1.pb(str);
+       }
+
+
+
+
+
+
+       string ans;
+
+
+       for(ll i=0;i<m;i++)
+       {
+          // cout<<i<<endl;
+
+
+           map<char,ll>a;
+
+          for(ll j=0;j<n;j++)
+          {
+             // cout<<j<<" "<<i<<endl;
+              a[v[j][i]]++;
+          }
+           for(ll j=0;j<n-1;j++)
+           {
+               a[v1[j][i]]--;
+           }
+
+         for(char c='a';c<='z';c++)
+         {
+             //cout<<c<<endl;
+             if(a[c])
+             {
+                 ans+=c;
+                 break;
+             }
+         }
+
+
+
+       }
+
+
+       cout<<ans<<endl;
+
+
+
+   }
+
+
+
+}
