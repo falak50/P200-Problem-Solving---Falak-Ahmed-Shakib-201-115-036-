@@ -1,0 +1,71 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+#define all(x) x.begin(),x.end()
+void loop()
+{
+    for(ll i=0; i<10; i++) {};
+}
+int main()
+{
+
+    fastread();
+
+
+    ll a,b,c;
+
+    cin>>a>>b>>c;
+
+    if(a>=0 and b>=0)
+    {
+        if(a>b)cout<<">"<<endl;
+        else if(a<b)cout<<"<"<<endl;
+        else cout<<"="<<endl;
+    }
+    else
+    {
+     //   cout<<"ff"<<endl;
+        if(c%2==0)
+        {
+            a=abs(a);
+            b=abs(b);
+             if(a>b)cout<<">"<<endl;
+        else if(a<b)cout<<"<"<<endl;
+        else cout<<"="<<endl;
+        }
+        else if(a<=0 and b<=0)
+        {
+
+            if(a<b)cout<<"<"<<endl;
+            else if(a>b)cout<<">"<<endl;
+            else cout<<"="<<endl;
+
+        }
+        else
+        {
+  //  cout<<"fjsfu"<<endl;
+            if(a<b)cout<<"<"<<endl;
+            else if(a>b)cout<<">"<<endl;
+            else cout<<"="<<endl;
+
+        }
+
+
+
+    }
+
+
+
+
+}
