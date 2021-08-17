@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+#define all(v) v.begin(),v.end()
+ll const MOD=1e9+7;
+#define eb emplace_back
+const int N=1e5+10;
+ll mp[N+1];
+int main()
+{
+    fastread();
+
+    ll n;
+
+    cin>>n;
+
+  string str;
+
+  cin>>str;
+
+   ll i;
+
+   for(i=0;str[i];i++)
+   {
+       if(str[i]=='1')break;
+   }
+
+
+   if(i%2)cout<<"Aoki"<<endl;
+   else cout<<"Takahashi"<<endl;
+
+}
