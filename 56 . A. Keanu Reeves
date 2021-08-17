@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL));
+#define vll(v) v.begin(),v.end()
+#define min3(a, b, c)   min(a, min(b, c))
+#define max3(a, b, c)   max(a, max(b, c))
+#define sf(a) scanf("%d",&a)
+#define pf(a) printf("%d",a);
+#define ff first
+#define ss second
+#define minheap int,vector<int>,greater<int>
+#define pb push_back
+#define eb emplace_back
+#define ischar(x)  (('a' <= x && x <= 'z') || ('A' <= x && x <= 'Z'))
+#define isvowel(ch) ((ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')||(ch=='A'|| ch=='E' || ch=='I'|| ch=='O'|| ch=='U'))
+#define bug cout<<"BUG"<<endl;
+int main()
+{
+    fastread();
+     ll n;
+     cin>>n;
+
+     string str;
+     cin>>str;
+     ll z=0,o=0;
+     for(ll i=0;i<n;i++)
+     {
+         if(str[i]=='1')o++;
+         else z++;
+     }
+
+     if(z==o)
+     {
+         cout<<2<<endl;
+         cout<<str[0]<<" ";
+         for(ll i=1;str[i];i++)cout<<str[i];
+         cout<<endl;
+
+     }else {
+       cout<<1<<endl;
+       cout<<str<<endl;
+
+
+     }
+
+
+
+}
