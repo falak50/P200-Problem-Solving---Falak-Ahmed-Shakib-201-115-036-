@@ -1,0 +1,80 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+#define all(x) x.begin(),x.end()
+void loop()
+{
+    for(ll i=0; i<10; i++) {};
+}
+ll n,m,key;
+bool f=false;
+bool call(ll value)
+{
+     ll sum=(value*(value+1))/2;
+     if(sum==key)f=true;
+     if(sum<key)return true;
+     else return false;
+
+}
+int main()
+{
+
+    fastread();
+
+    cin>>n>>m;
+
+     ll b=1;
+     ll e=2e9+2;
+     ll ans=b;
+     ll mid;
+       key=n-m;
+
+      while(b<=e)
+     {
+
+      mid=(b+e)/2;
+
+     // cout<<mid<<endl;
+
+      if(call(mid))
+      {
+          if(f)
+          {
+              ans=mid;
+              break;
+          }
+          b=mid+1;
+          ans=b;
+
+
+      }else e=mid-1;
+
+
+     // cout<<b<<" "<<e<<" "<<mid<<endl;
+     }
+ while(call(ans))ans++;
+     if(!call(ans-1))ans--;
+
+
+
+     if(n>m)
+     {
+        cout<<ans+m<<endl;
+     }else cout<<n<<endl;
+
+
+
+
+
+}
