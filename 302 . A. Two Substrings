@@ -1,0 +1,55 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+string str;
+   ll i,k,j,len,n,a,s,b,t,c,ara[10000000],bra[10000000];
+
+int main()
+{   float temp;
+    fastread();
+  string str;
+   ll n=str.size();
+   n--;
+  cin>>str;
+   for(i=1;str[i];i++)
+   {
+       if(str[i-1]=='A' && str[i]=='B')
+       {
+
+         for(i=i+2;str[i];i++)
+         {
+             if(str[i-1]=='B' && str[i]=='A')
+             {
+                 cout<<"YES";
+                 return 0;
+             }
+             if(n==i)break;
+
+         }
+
+       }
+   }
+   for(i=1;str[i];i++)
+   {
+       if(str[i-1]=='B' && str[i]=='A')
+       {
+
+         for(i=i+2;str[i];i++)
+         {
+             if(str[i-1]=='A' && str[i]=='B')
+             {
+                 cout<<"YES";
+                 return 0;
+             }   if(n==i)break;
+
+         }
+
+       }
+   }
+
+
+cout<<"NO";
+   return 0;
+  }
