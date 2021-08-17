@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define pb push_back
+#define ff first
+#define ss second
+#define pb push_back
+#define eb emplace_back
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+const ll mod=1e9+7;
+const ll Max=2e5+7;
+pll ara[Max+1];
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL));
+bool f;
+
+
+int main()
+{
+    fastread();
+
+
+   string str;
+
+   cin>>str;
+
+   bool f=true;
+
+   if(str[0]!='a')f=false;
+   char c='a';
+   for(ll i=0;str[i];i++)
+   {
+      // cout<<c<<endl;
+       if(str[i]>(c+1))
+       {
+           f=false;
+           break;
+       }else {
+           c=max(c,str[i]);
+
+       }
+   }
+
+
+   if(f)cout<<"YES"<<endl;
+   else cout<<"NO"<<endl;
+
+
+}
