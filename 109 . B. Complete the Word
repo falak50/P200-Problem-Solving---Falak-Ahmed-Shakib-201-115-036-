@@ -1,0 +1,113 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+#define all(v) v.begin(),v.end()
+ll const MOD=1e9+7;
+#define eb emplace_back
+const int N=2e5+10;
+
+int main()
+{
+    fastread();
+
+    string str;
+
+    cin>>str;
+
+    map<char,ll>mp;
+
+    ll  sum=0,w=0;
+
+
+    bool f=false;
+
+    ll i=0,j=0;
+    ll n=str.size();
+    while(j<n)
+    {
+        mp[str[j]]++;
+        if(str[j]=='?')w++;
+        else if(mp[str[j]]==1)sum++;
+        j++;
+
+        if(j-i==27)
+        {
+
+            mp[str[i]]--;
+            if(str[i]=='?')w--;
+            else if(mp[str[i]]==0)sum--;
+            i++;
+        }
+       // cout<<sum<<" "<<w<<" "<<j<<" "<<i<<endl;
+
+
+        if(w+sum==26)
+        {
+            // cout<<"YES"<<endl;
+
+            for(ll k=i; k<=j; k++)
+            {
+                if(str[k]=='?')
+                {
+                    for(char c='A'; c<='Z'; c++)
+                    {
+                        if(mp[c]==0)
+                        {
+                            //cout<<c;
+                            str[k]=c;
+                            mp[c]++;
+                            break;
+                        }
+                    }
+                }
+            }//cout<<endl;
+
+
+            f=true;
+            break;
+        }
+
+
+
+
+
+
+    }
+
+
+    if(!f)cout<<"-1"<<endl;
+    else
+    {
+
+
+        //cout<<str.size()<<endl;
+
+
+
+
+        for(ll i=0; str[i]; i++)
+        {
+            if(str[i]=='?')
+            {
+                cout<<'A';
+            }
+            else  cout<<str[i];
+        }
+
+
+    }
+
+
+
+
+
+
+
+
+
+}
