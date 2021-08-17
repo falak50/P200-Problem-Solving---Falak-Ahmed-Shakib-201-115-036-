@@ -1,0 +1,63 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+#define all(x) x.begin(),x.end()
+void loop()
+{
+    for(ll i=0; i<10; i++) {};
+}
+const ll N=2005,mod=1000000007;
+ll dp[N][N];
+
+
+ll call(ll  n,ll k,ll i)
+{
+     if(k==0) return 1;
+     if(dp[i][k]+1)return dp[i][k];
+
+
+    ll ans=0;
+
+
+    for(ll  j=i;j<=n;j+=i)
+    {
+       ans+=call(n,k-1,j);
+       ans%=mod;
+    }
+
+
+    dp[i][k]=ans;
+    return dp[i][k];
+}
+int main()
+{
+  fastread();
+
+
+  memset(dp,-1,sizeof(dp));
+
+  ll n,k;
+  cin>>n>>k;
+  ll ans=call(n,k,1);
+
+
+  cout<<ans<<endl;
+
+
+
+
+}
+
+
+ 
