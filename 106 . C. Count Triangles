@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define ff first
+#define ss second
+#define pb push_back
+#define all(v) v.begin(),v.end()
+ll const MOD=1e9+7;
+#define eb emplace_back
+const int N=1e6+10;
+ll ara[N+1];
+int main()
+{
+    fastread();
+    ll a,b,c,d;
+
+    cin>>a>>b>>c>>d;
+
+    for(ll i=a;i<=b;i++)
+    {
+        ara[i+b]++;
+        ara[i+c+1]--;
+    }
+
+
+    for(ll i=1;i<=N;i++)
+    {
+        ara[i]+=ara[i-1];
+        //cout<<ara[i]<<" ";
+    }//cout<<endl;
+
+    for(ll i=N;i>=1;i--)
+    {
+        ara[i-1]+=ara[i];
+
+    }
+
+
+    ll ans=0;
+
+    for(ll i=c;i<=d;i++)
+    {
+        ans+=ara[i+1];
+    }
+
+    cout<<ans<<endl;
+
+}
