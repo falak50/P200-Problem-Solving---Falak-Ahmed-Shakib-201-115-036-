@@ -1,0 +1,94 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long  ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<ll,pair<ll,ll>>plll;
+#define   fastread(); (ios_base:: sync_with_stdio(false),cin.tie(NULL));
+#define vll(v) v.begin(),v.end()
+#define minheap int,vector<int>,greater<int>
+#define pb push_back
+#define eb emplace_back
+#define F first
+#define S second
+const int Max = 2e5 ;
+const int Mod = 1e9 + 7;
+const int N=1e6;
+ll n;
+bool check(ll i,ll j)
+{
+    return (i>=0 and j>=0 and i<n and j<n);
+}
+int main()
+{
+   fastread();
+
+
+   ll k;
+   cin>>n>>k;
+
+    char str[101][101];
+
+
+   for(ll i=0;i<n;i++)
+   {
+       for(ll j=0;j<n;j++)
+       {
+           str[i][j]='S';
+       }
+   }
+
+
+  for(ll i=0;i<n;i++)
+  {
+      for(ll j=0;j<n;j++)
+      {
+          bool f=true;
+          if(check(i-1,j))
+          {
+              if(str[i-1][j]=='L')f=false;
+          }
+
+          if(check(i,j-1))
+          {
+              if(str[i][j-1]=='L')f=false;
+          }
+
+          if(f)str[i][j]='L';
+      }
+  }
+  ll cnt=0;
+  for(ll i=0;i<n;i++)
+  {
+      for(ll j=0;j<n;j++)
+      {
+        if(str[i][j]=='L')cnt++;
+      }
+  }
+
+ // cout<<cnt<<endl;
+
+  if(cnt>=k)
+  {
+  cout<<"YES"<<endl;
+
+      for(ll i=0;i<n;i++)
+      {
+          for(ll j=0;j<n;j++)
+          {
+              if(k>0)
+              {
+                  cout<<str[i][j];
+                  if(str[i][j]=='L')k--;
+              }else cout<<'S';
+          }cout<<endl;
+      }
+
+  }else cout<<"NO"<<endl;
+
+
+
+
+
+
+}
