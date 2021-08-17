@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define fi first
+#define se second
+#define pb push_back
+#define all(q) (q).begin(),(q).end()
+ll const MOD=1000000007;
+#define eb emplace_back
+const int N=1e6;
+ll dp[N+10];
+int main()
+{
+    fastread();
+
+
+   string str;
+
+
+   cin>>str;
+   ll cnt=0;
+
+   for(ll i=0;str[i];i++)
+   {
+       if(str[i]=='a' or str[i]=='e' or str[i]=='i' or str[i]=='o' or str[i]=='u')
+       {
+           cnt++;
+       }
+
+       if(str[i]=='1' or str[i]=='3' or str[i]=='5' or str[i]=='7' or str[i]=='9' )
+       {
+           cnt++;
+       }
+   }
+
+   cout<<cnt<<endl;
+
+}
