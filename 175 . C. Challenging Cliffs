@@ -1,0 +1,111 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<ll,ll>pll;
+typedef pair<pair<ll,ll>,ll>plll;
+#define ff first
+#define ss second
+#define fi first
+#define se second
+#define pb push_back
+#define eb emplace_back
+#define all(x) x.begin(),x.end()
+void loop()
+{
+    for(ll i=0; i<10; i++) {};
+}
+int main()
+{
+
+    fastread();
+
+
+
+    ll t;
+
+    cin>>t;
+
+
+    while(t--)
+    {
+
+
+
+
+
+     ll n;
+
+     cin>>n;
+
+     ll ara[n+1];
+
+
+     ara[0]=-1*(1e10);
+
+     for(ll i=1;i<=n;i++)
+     {
+         cin>>ara[i];
+     }
+
+
+     sort(ara,ara+n+1);
+
+
+
+    for(ll i=1;i<=n;i++)
+    {
+      //  cout<<ara[i]<<" ";
+    }//cout<<endl;
+
+    ll mn=1e18,mni,mnj;
+
+
+    for(ll i=1;i<n;i++)
+    {
+
+        ll temp=ara[i+1]-ara[i];
+
+        if(temp<mn)
+        {
+            mn=temp;
+
+            mni=i;
+            mnj=i+1;
+        }
+    }
+
+   // cout<<mn<<" "<<mni<<" "<<mnj<<endl;
+
+
+
+
+  //  cout<<ara[mni]<<" "<<ara[mnj]<<endl;
+
+    vector<ll>v;
+
+
+    v.pb(ara[mni]);
+
+    for(ll i=mnj+1;i<=n;i++)v.pb(ara[i]);
+
+    for(ll i=1;i<mnj;i++)
+    {
+        if(mni==i)continue;
+        v.pb(ara[i]);
+    }
+
+    v.pb(ara[mnj]);
+
+    for(auto x:v)cout<<x<<" ";cout<<endl;
+
+
+
+
+
+    }
+
+
+}
