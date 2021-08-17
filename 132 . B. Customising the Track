@@ -1,0 +1,67 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long   ll;
+typedef pair<ll,ll> pll;
+#define fastread() (ios_base:: sync_with_stdio(false),cin.tie(NULL))
+#define fi first
+#define se second
+#define pb push_back
+ll const MOD=1000000007;
+#define eb emplace_back
+const int N=10000005;
+bool  ok=true;
+int main()
+{
+
+    fastread();
+
+    ll t;
+
+    cin>>t;
+
+
+    while(t--)
+    {
+
+      ll n;
+
+      cin>>n;
+
+      ll ara[n+1],sum=0;
+
+    for(ll i=0;i<n;i++)
+    {
+        cin>>ara[i];
+        sum+=ara[i];
+    }
+
+
+
+
+        ll mod=sum%n;
+
+        n=n-mod;
+
+       /// cout<<mod<<endl;
+
+        cout<<mod*n<<endl;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+}
